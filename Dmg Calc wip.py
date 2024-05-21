@@ -14,14 +14,15 @@ class Build():
     def display_character(self):
          print('Current character:')
          for c in self.build:
-            print('Character: ', c.CharName)
-            print('Level: ', c.CLevel)
-            print('HP: ', c.CHP)
-            print('ATK: ', c.CATK)
-            print('DEF: ', c.CDEF)
-            print(f'Crit Rate:  {c.CCRate:.1f}%')
-            print(f'Crit Damage:  {c.CCDMG:.1f}%')
-            print('----------------------------')
+            if isinstance(c, character):
+                print('Character: ', c.CharName)
+                print('Level: ', c.CLevel)
+                print('HP: ', c.CHP)
+                print('ATK: ', c.CATK)
+                print('DEF: ', c.CDEF)
+                print(f'Crit Rate:  {c.CCRate:.1f}%')
+                print(f'Crit Damage:  {c.CCDMG:.1f}%')
+                print('----------------------------')
 
     def display_weapon(self):
         print('Current weapon:')
@@ -36,21 +37,90 @@ class Build():
 def main():
     my_build = Build()
     
-    SRover = character("Spectro Rover", 90, 1144.00, 375.00, 1368.00, 5.00, 150.00)
-    my_build.add_character(SRover)
-    my_build.display_character()
+    # Predefined characters
+    characters = [
+        character("Spectro Rover", 90, 12312.00, 405.00, 1480.89, 5.00, 150.00),
+        character("Yangyang", 90, 11016.00, 270.00, 1190.00, 5.00, 150.00),
+        character("Chixia", 90, 9814.50, 324.00, 1031.33, 5.00, 150.00),
+        character("Sanhua", 90, 10867.50, 297.00, 1018.11, 5.00, 150.00),
+        character("Taoqi", 90, 9666.00, 243.00, 1692.44, 5.00, 150.00),
+        character("Baizhi", 90, 13837.50, 229.50, 1084.22, 5.00, 150.00),
+        character("Danjin", 90, 10192.50, 283.50, 1242.89, 5.00, 150.00),
+        character("Aalto", 90, 10638.00, 283.50, 1163.55, 5.00, 150.00),
+        character("Mortefi", 90, 10827.00, 270.00, 1229.66, 5.00, 150.00),
+        character("Yuanwu", 90, 9207.00, 243.00, 1771.77, 5.00, 150.00),
+        character("Verina", 90, 15376.50, 364.50, 1190.00, 5.00, 150.00),
+        character("Encore", 90, 11353.50, 459.00, 1348.66, 5.00, 150.00),
+        character("Calcharo", 90, 11340.00, 472.50, 1282.55, 5.00, 150.00),
+        character("Lingyang", 90, 11218.50, 472.50, 1309.00, 5.00, 150.00),
+        character("Jianxin", 90, 15241.50, 364.50, 1216.44, 5.00, 150.00),
+        character("Jiyan", 90, 11326.50, 472.50, 1282.55, 5.00, 150.00),
+        character("Yinlin", 90, 11880.00, 432.00, 1388.33, 5.00, 150.00)    
+        ]
     
-    Sword18 = weapon("Sword#18", "Sword", 387.00, 36.4)
-    my_build.add_weapon(Sword18)
+    weapons = {
+        "Spectro Rover": [
+            weapon("Training Sword", "Sword", 250.00, 11.47),
+            weapon("Tyro Sword", "Sword", 275.00, 14.85),
+            weapon("Guardian Sword", "Sword", 300.00, 30.38),
+            weapon("Sword of Voyager", "Sword", 300.00, 0.00),
+            weapon("Originite: Type II", "Sword", 325.00, 24.30),
+            weapon("Sword of Night", "Sword", 350.00, 24.30),
+            weapon("Lumingloss", "Sword", 387.50, 36.45),
+            weapon("Lunar Cutter", "Sword", 412.50, 30.38),
+            weapon("Commando of Conviction", "Sword", 412.50, 30.38),
+            weapon("Sword#18", "Sword", 387.50, 36.45),
+            weapon("Scale: Slasher", "Sword", 337.50, 0.00),
+            weapon("Emerald of Genesis", "Sword", 587.50, 0.00)
+        ],
+        "Yangyang": [
+            weapon("Training Sword", "Sword", 250.00, 11.47),
+            weapon("Tyro Sword", "Sword", 275.00, 14.85),
+            weapon("Guardian Sword", "Sword", 300.00, 30.38),
+            weapon("Sword of Voyager", "Sword", 300.00, 0.00),
+            weapon("Originite: Type II", "Sword", 325.00, 24.30),
+            weapon("Sword of Night", "Sword", 350.00, 24.30),
+            weapon("Lumingloss", "Sword", 387.50, 36.45),
+            weapon("Lunar Cutter", "Sword", 412.50, 30.38),
+            weapon("Commando of Conviction", "Sword", 412.50, 30.38),
+            weapon("Sword#18", "Sword", 387.50, 36.45),
+            weapon("Scale: Slasher", "Sword", 337.50, 0.00),
+            weapon("Emerald of Genesis", "Sword", 587.50, 0.00)
+        ],
+        "Chixia": [
+            weapon("Training Pistols", "Pistols", 250.00, 11.47),
+            weapon("Tyro Pistols", "Pistols", 275.00, 14.85),
+        ]
+    }
+
+     # Display character options
+    print("Select a character:")
+    for i, char in enumerate(characters):
+        print(f"{i + 1}. {char.CharName} (Level: {char.CLevel}, HP: {char.CHP}, ATK: {char.CATK}, DEF: {char.CDEF}, Crit Rate: {char.CCRate}%, Crit Damage: {char.CCDMG}%)")
+    
+    char_choice = int(input("Enter the number of the character you want to select: ")) - 1
+    selected_char = characters[char_choice]
+    my_build.add_character(selected_char)
+    my_build.display_character()
+
+    # Display weapon options
+    print("Select a weapon:")
+    available_weapons = weapons[selected_char.CharName]
+    for i, weap in enumerate(available_weapons):
+        print(f"{i + 1}. {weap.WName} (Type: {weap.WType}, Flat ATK: {weap.WFlatATK}, ATK Bonus: {weap.WATKBonus}%)")
+    
+    weap_choice = int(input("Enter the number of the weapon you want to select: ")) - 1
+    selected_weap = available_weapons[weap_choice]
+    my_build.add_weapon(selected_weap)
     my_build.display_weapon()
    
-    Base_Flat_Damage = SRover.CATK + Sword18.WFlatATK
+    Base_Flat_Damage = selected_char.CATK + selected_weap.WFlatATK
     Base_Flat_Bonus = 0.00
-    Base_Attack_Bonus = 1 + (Sword18.WATKBonus / 100)
+    Base_Attack_Bonus = 1 + (selected_weap.WATKBonus / 100)
     Base_Attack = Base_Flat_Damage * Base_Attack_Bonus
 
-    Crit_Rate = SRover.CCRate
-    Crit_Damage = SRover.CCDMG
+    Crit_Rate = selected_char.CCRate
+    Crit_Damage = selected_char.CCDMG
 
     print('Basic Attack - Vibration Manifestation:')
     Basic_Attack_P1 = Base_Attack * (59.15 / 100)
