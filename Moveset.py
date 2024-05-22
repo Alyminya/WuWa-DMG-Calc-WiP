@@ -1,5 +1,5 @@
 class Moveset:
-    def __init__(self, basic_attack, heavy_attack, dodge_counter, ha_resonance, ha_aftertune, midair_attack, resonance_skill, resonance_liberation, intro_skill, forte_circuit):
+    def __init__(self, basic_attack, heavy_attack, dodge_counter, ha_resonance, ha_aftertune, midair_attack, resonance_skill, resonance_liberation, intro_skill, outro_skill, forte_circuit):
         self.basic_attack = basic_attack
         self.heavy_attack = heavy_attack
         self.dodge_counter = dodge_counter
@@ -9,6 +9,7 @@ class Moveset:
         self.resonance_skill = resonance_skill
         self.resonance_liberation = resonance_liberation
         self.intro_skill = intro_skill
+        self.outro_skill = outro_skill
         self.forte_circuit = forte_circuit
 
     def calculate_damage(self, base_attack, crit_damage):
@@ -76,6 +77,12 @@ class Moveset:
         results['Intro_Skill'] = {
             "damage": base_attack * (self.intro_skill["multiplier"] / 100),
             "crit_damage": base_attack * (self.intro_skill["multiplier"] / 100) * (crit_damage / 100)
+        }
+
+        # Outro Skill
+        results['Outro_Skill'] = {
+            "damage": base_attack * (self.outro_skill["multiplier"] / 100),
+            "crit_damage": base_attack * (self.outro_skill["multiplier"] / 100) * (crit_damage / 100)
         }
 
         # Forte Circuit
