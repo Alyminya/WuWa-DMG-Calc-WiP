@@ -4,4 +4,3 @@ class weapon:
         self.WType = WType
         self.WFlatATK = WFlatATK
         self.WATKBonus = WATKBonus
-      

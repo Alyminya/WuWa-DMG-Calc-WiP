@@ -7,7 +7,3 @@ class character:
         self.CDEF = CDEF
         self.CCRate = CCRate
         self.CCDMG = CCDMG
-
-
-
-    
