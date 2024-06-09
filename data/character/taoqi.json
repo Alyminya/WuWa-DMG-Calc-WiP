@@ -74,7 +74,7 @@
             "(d)a": {
                 "skill": "a",
                 "strikes": 1,
-                "after": null
+                "after": ["d"]
             },
             "e": {
                 "skill": "e",
@@ -100,7 +100,7 @@
                 "skill": "a",
                 "fe_req": 1,
                 "strikes": 1,
-                "after": null
+                "after": ["sp", "i"]
             },
             "(f)t2": {
                 "skill": "a",
