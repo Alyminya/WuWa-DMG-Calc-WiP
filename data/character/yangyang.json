@@ -73,7 +73,7 @@
             },
             "(z)h": {
                 "skill": "h",
-                "stikes": 1,
+                "strikes": 1,
                 "after": ["h", "(d)a"]  
             },
             "(d)a": {
