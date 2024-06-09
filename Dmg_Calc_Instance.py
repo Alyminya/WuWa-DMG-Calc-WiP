@@ -5,6 +5,7 @@ from util.moveset import Moveset
 from util.damage_instance import DamageCalculator
 
 import util.db
+import util.db.model
 
 class Build:
     def __init__(self):
@@ -39,10 +40,12 @@ class Build:
                 print(f"ATK Bonus: {w.substat()[1]:.1f}%")
                 print("----------------------------")
 
-def load_weapons():
+def load_weapons(weapon_type: util.db.model.Weapon_Type):
     weapons: list[Weapon] = []
     for weapon_id in util.db.data.weapons:
-        weapons.append(Weapon(weapon_id, level = 70))
+        weapon = Weapon(weapon_id, level = 70)
+        if weapon.info.type == weapon_type:
+            weapons.append(weapon)
     return weapons
 
 def load_characters():
@@ -55,7 +58,6 @@ def main():
     my_build = Build()
 
     characters = load_characters()
-    weapons = load_weapons()
 
     # Display character options
     print("Select a character:")
@@ -69,6 +71,7 @@ def main():
 
     # Display weapon options
     print("Select a weapon:")
+    weapons = load_weapons(selected_char.info.weapon)
     for i, weap in enumerate(weapons):
         print(f"{1+i}. {weap.info.name} (Type: {weap.info.type}, ATK: {weap.base_atk()}, ATK Bonus: {weap.substat()[1]*100}%)")
 
