@@ -1,43 +1,66 @@
-import csv
+import json
+import math
+import os.path
+
+from . import db
 
 class Character:
-    def __init__(self, name, level, hp, atk, defense, crit_rate, crit_dmg):
+    id: str
+    name: str
+    level: int
+    hp_scaling: list[float]
+    atk_scaling: list[float]
+    defn_scaling: list[float]
+    cr: float
+    cd: float
+    def __init__(
+        self,
+        id: str,
+        name: str,
+        level: int,
+        hp_scaling: list[float],
+        atk_scaling: list[float],
+        defn_scaling: list[float]
+    ):
+        self.id = id
         self.name = name
         self.level = level
-        self.hp = hp
-        self.atk = atk
-        self.defense = defense
-        self.crit_rate = crit_rate
-        self.crit_dmg = crit_dmg
+        self.hp_scaling = hp_scaling
+        self.atk_scaling = atk_scaling
+        self.defn_scaling = defn_scaling
+        self.cr = 0.05
+        self.cd = 1.50
 
     @classmethod
-    def from_csv(cls, name, file_path):
+    def by_id(cls, id: str, level: int):
         """Load character data from a CSV file."""
-        with open(file_path, mode='r') as infile:
-            reader = csv.DictReader(infile)
-            for row in reader:
-                if row['name'] == name:
-                    return cls(
-                        name=row['name'],
-                        level=int(row['level']),
-                        hp=float(row['hp']),
-                        atk=float(row['atk']),
-                        defense=float(row['defense']),
-                        crit_rate=float(row['crit_rate']),
-                        crit_dmg=float(row['crit_dmg'])
-                    )
-        raise ValueError(f"Character {name} not found in {file_path}")
+        char_info = db.data.characters[id]
+        return cls(
+            id = id,
+            name = char_info.name,
+            level = level,
+            hp_scaling = char_info.base_hp_scaling,
+            atk_scaling = char_info.base_atk_scaling,
+            defn_scaling = char_info.base_def_scaling,
+        )
 
-    def update_stats(self, **kwargs):
-        """Update character stats."""
-        for key, value in kwargs.items():
-            if hasattr(self, key):
-                setattr(self, key, value)
-            else:
-                raise AttributeError(f"{key} is not a valid attribute of Character")
+    def ascension(self) -> int:
+        asc = math.floor(self.level / 10)
+        if asc >= 3: asc -= 1 # Remove level 30 from ascensions
+        if asc >= 1: asc -= 1 # Remove level 10 from ascensions
+        return asc
+
+    def base_hp(self) -> float:
+        return self.hp_scaling[self.ascension()]
+
+    def base_def(self) -> float:
+        return self.defn_scaling[self.ascension()]
+
+    def base_atk(self) -> float:
+        return self.atk_scaling[self.ascension()]
 
     def __str__(self):
         """String representation of the character."""
-        return (f"Character({self.name}, Level: {self.level}, HP: {self.hp}, "
-                f"ATK: {self.atk}, DEF: {self.defense}, Crit Rate: {self.crit_rate}%, "
-                f"Crit Damage: {self.crit_dmg}%)")
+        return (f"Character({self.name}, Level: {self.level}, Base HP: {self.base_hp()}, "
+                f"Base ATK: {self.base_atk()}, Base DEF: {self.base_def()}, Crit Rate: {self.cr*100}%, "
+                f"Crit Damage: {self.cd*100}%)")

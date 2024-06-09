@@ -1,0 +1,11 @@
+{
+    "id": "training-gauntlets",
+    "name": "Training Gauntlets",
+    "rarity": 1,
+    "weapon_type": "gauntlets",
+    "atk": [20, 65, 112, 142, 172, 189],
+    "substat": {
+        "type": "atk",
+        "scaling": [2.5, 4.5, 6.5, 7.5, 8.4, 9.4]
+    }
+}

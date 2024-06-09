@@ -1,0 +1,6 @@
+{
+    "$id": "https://github.com/Alyminya/WuWa-DMG-Calc-WiP/characters",
+    "title": "List of characters in the database",
+    "type": "object",
+    "additionalProperties": {"type": "string" }
+}

@@ -1,6 +1,7 @@
 
-# Python cache
-/__pycache__/
+# Python
+__pycache__/
+.venv
 
 # Editor configuration
 .vscode
