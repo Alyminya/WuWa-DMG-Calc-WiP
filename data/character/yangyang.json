@@ -79,7 +79,7 @@
             "(d)a": {
                 "skill": "a",
                 "strikes": 2,
-                "after": null
+                "after": ["d"]
             },
             "e@1": {
                 "skill": "e",
