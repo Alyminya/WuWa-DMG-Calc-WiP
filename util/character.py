@@ -2,6 +2,8 @@ import json
 import math
 import os.path
 
+from . import db
+
 class Character:
     id: str
     name: str
@@ -32,21 +34,14 @@ class Character:
     @classmethod
     def by_id(cls, id: str, level: int):
         """Load character data from a CSV file."""
-        # TODO(flysand): The validation of the character data will happen elsewhere
-        # and will proably become a test suite later, so we will be able to assume
-        # that this code is error-free.
-        with open("data/characters.json") as chrs_json:
-            chrs = json.load(chrs_json)
-            data_path = chrs[id]
-        with open(os.path.join('data', data_path)) as chr_json:
-            chr = json.load(chr_json)
+        char_info = db.data.characters[id]
         return cls(
             id = id,
-            name = chr["name"],
+            name = char_info.name,
             level = level,
-            hp_scaling = chr["stats"]["hp"],
-            atk_scaling = chr["stats"]["atk"],
-            defn_scaling = chr["stats"]["def"],
+            hp_scaling = char_info.base_hp_scaling,
+            atk_scaling = char_info.base_atk_scaling,
+            defn_scaling = char_info.base_def_scaling,
         )
 
     def ascension(self) -> int:

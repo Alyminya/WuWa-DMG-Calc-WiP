@@ -4,6 +4,8 @@ from util.weapon import Weapon
 from util.moveset import Moveset
 from util.damage_instance import DamageCalculator
 
+import util.db
+
 class Build:
     def __init__(self):
         self.build = []
@@ -37,30 +39,23 @@ class Build:
                 print(f"ATK Bonus: {w.substat()[1]:.1f}%")
                 print("----------------------------")
 
-def load_weapons(file_path):
+def load_weapons():
     weapons: list[Weapon] = []
-    with open('data/weapons.json', mode='r') as weapons_json:
-        weaps = json.load(weapons_json)
-    for weapon_id in weaps:
+    for weapon_id in util.db.data.weapons:
         weapons.append(Weapon.by_id(weapon_id, level = 70))
     return weapons
 
 def load_characters():
     characters: list[Character] = []
-    with open('data/characters.json', mode='r') as chrs_json:
-        chrs = json.load(chrs_json)
-    for chr_id in chrs:
+    for chr_id in util.db.data.characters:
         characters.append(Character.by_id(chr_id, level = 90))
     return characters
 
 def main():
     my_build = Build()
 
-    # Load characters from CSV
     characters = load_characters()
-
-    # Load weapons from CSV
-    weapons = load_weapons('data/weapons.csv')
+    weapons = load_weapons()
 
     # Display character options
     print("Select a character:")

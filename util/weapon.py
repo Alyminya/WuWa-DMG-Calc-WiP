@@ -2,8 +2,9 @@ import json
 import os.path
 import math
 
-class Weapon:
+from . import db
 
+class Weapon:
     id: str
     name: str
     type: str
@@ -33,19 +34,15 @@ class Weapon:
     @classmethod
     def by_id(cls, id: str, level: int):
         """Load character data from a CSV file."""
-        with open("data/weapons.json") as weapons_json:
-            weapons = json.load(weapons_json)
-            data_path = weapons[id]
-        with open(os.path.join('data', data_path)) as weapon_json:
-            weapon = json.load(weapon_json)
+        weapon_info = db.data.weapons[id]
         return cls(
             id = id,
-            name = weapon["name"],
+            name = weapon_info.name,
             level = level,
-            type = weapon["type"],
-            atk_scaling = weapon["atk"],
-            sub_stat = weapon["substat"]["type"],
-            sub_scaling = weapon["substat"]["scaling"],
+            type = str(weapon_info.type),
+            atk_scaling = weapon_info.atk_scaling,
+            sub_stat = weapon_info.sub_stat,
+            sub_scaling = weapon_info.sub_scaling,
         )
     
     def ascension(self) -> int:

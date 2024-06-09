@@ -2,7 +2,7 @@
     "id": "training-broadblade",
     "name": "Training Broadblade",
     "rarity": 1,
-    "type": "broadblade",
+    "weapon_type": "broadblade",
     "atk": [20, 65, 112, 142, 172, 189],
     "substat": {
         "type": "atk",

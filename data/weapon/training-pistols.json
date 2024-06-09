@@ -2,7 +2,7 @@
     "id": "training-pistols",
     "name": "Training Pistols",
     "rarity": 1,
-    "type": "pistols",
+    "weapon_type": "pistols",
     "atk": [20, 65, 112, 142, 172, 189],
     "substat": {
         "type": "atk",

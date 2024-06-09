@@ -2,7 +2,7 @@
     "id": "training-rectifier",
     "name": "Training Rectifier",
     "rarity": 1,
-    "type": "rectifier",
+    "weapon_type": "rectifier",
     "atk": [20, 65, 112, 142, 172, 189],
     "substat": {
         "type": "atk",

@@ -7,7 +7,7 @@
         "id": { "type": "string" },
         "name": { "type": "string" },
         "rarity": { "type":"number" },
-        "type": {
+        "weapon_type": {
             "enum": ["sword", "broadblade", "pistols", "rectifier", "gauntlets"]
         },
         "atk":  { "type":"array", "maxItems": 8, "items": { "type": "number" } },
