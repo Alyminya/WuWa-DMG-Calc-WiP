@@ -1,8 +1,9 @@
 {
+    "$schema": "https://raw.githubusercontent.com/Alyminya/WuWa-DMG-Calc-WiP/main/data/_schemas/character.schema.json",
     "id": "taoqi",
     "name": "Taoqi",
     "rarity": 4,
-    "weapon": "broadsword",
+    "weapon": "broadblade",
     "element": "havoc",
     "birthday": "02/25",
     "affiliation": "jinzhou",

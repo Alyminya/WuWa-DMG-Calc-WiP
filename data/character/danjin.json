@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/Alyminya/WuWa-DMG-Calc-WiP/main/data/_schemas/character.schema.json",
     "id": "danjin",
     "name": "Danjin",
     "rarity": 4,
@@ -8,9 +9,9 @@
     "affiliation": "jinzhou",
     "birthplace": "huanglong",
     "stats": {
-        "hp":  [755.00, 2467.11, 4242.95, 5382.55, 6522.07, 7661.66],
-        "atk": [21.00,  70.37,   121.52,  154.96,  188.41,  216.61],
-        "def": [94.00,  302.08,  517.91,  656.29,  794.68,  933.05]
+        "hp":  [755.00, 2467.11, 4242.95, 5382.55, 6522.07, 7661.66, 8801.26, 9437.50],
+        "atk": [ 21.00,   70.37,  121.52,  154.96,  188.41,  216.61,  244.80,  262.50],
+        "def": [ 94.00,  302.08,  517.91,  656.29,  794.68,  933.05, 1071.43, 1148.89]
     },
     "max_forte": 120,
     "attacks": {
@@ -110,40 +111,40 @@
                 "after": ["2E"]
             },
             "r": {
-                "type": "r",
+                "skill": "r",
                 "strikes": 8,
                 "after": null,
                 "chain": "(r)r"
             },
             "(r)r": {
-                "type": "r",
+                "skill": "r",
                 "strikes": 1,
                 "after": []
             },
             "i": {
-                "type": "i",
+                "skill": "i",
                 "strikes": 4,
                 "after": null
             },
             "(f)h": {
-                "type": "h",
+                "skill": "h",
                 "strikes": 7,
                 "fe_req": 60,
                 "after": null
             },
             "(fh)a": {
-                "type": "a",
+                "skill": "a",
                 "strikes": 1,
                 "after": ["(f)h"]
             },
             "(f)H": {
-                "type": "h",
+                "skill": "h",
                 "strikes": 7,
                 "fe_req": 120,
                 "after": null
             },
             "(fH)a": {
-                "type": "a",
+                "skill": "a",
                 "strikes": 1,
                 "after": ["(f)H"]
             }

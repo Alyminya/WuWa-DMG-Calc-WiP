@@ -1,0 +1,6 @@
+{
+    "$id": "https://github.com/Alyminya/WuWa-DMG-Calc-WiP/weapons",
+    "title": "List of weapons in the database",
+    "type": "object",
+    "additionalProperties": {"type": "string" }
+}

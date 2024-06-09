@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Alyminya/WuWa-DMG-Calc-WiP/main/data/_schemas/weapon.schema.json",
+    "id": "training-pistols",
+    "name": "Training Pistols",
+    "rarity": 1,
+    "weapon_type": "pistols",
+    "atk": [20, 65, 112, 142, 172, 189],
+    "substat": {
+        "type": "atk",
+        "scaling": [2.5, 4.5, 6.5, 7.5, 8.4, 9.4]
+    }
+}
