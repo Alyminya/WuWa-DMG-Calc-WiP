@@ -20,21 +20,21 @@ class Build:
         print("Current character:")
         for c in self.build:
             if isinstance(c, Character):
-                print("Character: ", c.name)
+                print("Character: ", c.info.name)
                 print("Level: ", c.level)
                 print("Base HP: ", c.base_hp())
                 print("Base ATK: ", c.base_atk())
                 print("Base DEF: ", c.base_def())
-                print(f"Crit Rate:  {c.cr*100:.1f}%")
-                print(f"Crit Damage:  {c.cd*100:.1f}%")
+                print(f"Crit Rate:  {c.cr()*100:.1f}%")
+                print(f"Crit Damage:  {c.cd()*100:.1f}%")
                 print("----------------------------")
 
     def display_weapon(self):
         print("Current weapon:")
         for w in self.build:
             if isinstance(w, Weapon):
-                print("Weapon: ", w.name)
-                print("Type: ", w.type)
+                print("Weapon: ", w.info.name)
+                print("Type: ", w.info.type)
                 print("Flat ATK: ", w.base_atk())
                 print(f"ATK Bonus: {w.substat()[1]:.1f}%")
                 print("----------------------------")
@@ -42,13 +42,13 @@ class Build:
 def load_weapons():
     weapons: list[Weapon] = []
     for weapon_id in util.db.data.weapons:
-        weapons.append(Weapon.by_id(weapon_id, level = 70))
+        weapons.append(Weapon(weapon_id, level = 70))
     return weapons
 
 def load_characters():
     characters: list[Character] = []
     for chr_id in util.db.data.characters:
-        characters.append(Character.by_id(chr_id, level = 90))
+        characters.append(Character(chr_id, level = 90))
     return characters
 
 def main():
@@ -60,7 +60,7 @@ def main():
     # Display character options
     print("Select a character:")
     for i, char in enumerate(characters):
-        print(f"{1+i}. {char.name} (Level: {char.level}, HP: {char.base_hp()}, ATK: {char.base_atk()}, DEF: {char.base_def()})")
+        print(f"{1+i}. {char.info.name} (Level: {char.level}, HP: {char.base_hp()}, ATK: {char.base_atk()}, DEF: {char.base_def()})")
 
     char_choice = int(input("Enter the number of the character you want to select: ")) - 1
     selected_char = characters[char_choice]
@@ -70,7 +70,7 @@ def main():
     # Display weapon options
     print("Select a weapon:")
     for i, weap in enumerate(weapons):
-        print(f"{1+i}. {weap.name} (Type: {weap.type}, ATK: {weap.base_atk()}, ATK Bonus: {weap.substat()[1]*100}%)")
+        print(f"{1+i}. {weap.info.name} (Type: {weap.info.type}, ATK: {weap.base_atk()}, ATK Bonus: {weap.substat()[1]*100}%)")
 
     weap_choice = int(input("Enter the number of the weapon you want to select: ")) - 1
     selected_weap = weapons[weap_choice]
@@ -82,8 +82,8 @@ def main():
     Base_Attack_Bonus = 1.0 + selected_weap.substat()[1]
     Base_Attack = Base_Flat_Damage * Base_Attack_Bonus
 
-    Crit_Rate = selected_char.cr
-    Crit_Damage = selected_char.cd
+    Crit_Rate = selected_char.cr()
+    Crit_Damage = selected_char.cd()
 
     moveset = Moveset()
     calculator = DamageCalculator(Base_Attack, Crit_Damage, moveset)
