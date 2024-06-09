@@ -1,0 +1,7 @@
+{
+    "training-sword": "weapon/training-sword.json",
+    "training-broadblade": "weapon/training-broadblade.json",
+    "training-pistols": "weapon/training-pistols.json",
+    "training-gauntlets": "weapon/training-gauntlets.json",
+    "training-rectifier": "weapon/training-rectifier.json"
+}

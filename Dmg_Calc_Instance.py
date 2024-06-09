@@ -34,21 +34,16 @@ class Build:
             if isinstance(w, Weapon):
                 print("Weapon: ", w.name)
                 print("Type: ", w.type)
-                print("Flat ATK: ", w.flat_atk)
-                print(f"ATK Bonus: {w.atk_bonus:.1f}%")
+                print("Flat ATK: ", w.base_atk())
+                print(f"ATK Bonus: {w.substat():.1f}%")
                 print("----------------------------")
 
 def load_weapons_from_csv(file_path):
     weapons = []
-    with open(file_path, mode='r') as infile:
-        reader = csv.DictReader(infile)
-        for row in reader:
-            weapons.append(Weapon(
-                name=row['name'],
-                type=row['type'],
-                flat_atk=float(row['flat_atk']),
-                atk_bonus=float(row['atk_bonus'])
-            ))
+    with open('data/weapons.json', mode='r') as weapons_json:
+        weaps = json.load(weapons_json)
+    for weapon_id in weaps:
+        weapons.append(Weapon.by_id(weapon_id, level = 70))
     return weapons
 
 def load_characters():
