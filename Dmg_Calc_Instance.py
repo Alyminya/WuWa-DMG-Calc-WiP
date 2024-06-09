@@ -35,7 +35,7 @@ class Build:
                 print("Weapon: ", w.name)
                 print("Type: ", w.type)
                 print("Flat ATK: ", w.base_atk())
-                print(f"ATK Bonus: {w.substat():.1f}%")
+                print(f"ATK Bonus: {w.substat()[1]:.1f}%")
                 print("----------------------------")
 
 def load_weapons_from_csv(file_path):

@@ -49,7 +49,7 @@ class Weapon:
         )
     
     def ascension(self) -> int:
-        asc = math.floor(self.level)
+        asc = math.floor(self.level/10)
         if asc >= 3: asc -= 1
         if asc >= 1: asc -= 1
         return asc
