@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/Alyminya/WuWa-DMG-Calc-WiP/main/data/_schemas/weapon.schema.json",
     "id": "training-pistols",
     "name": "Training Pistols",
     "rarity": 1,

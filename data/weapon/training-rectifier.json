@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/Alyminya/WuWa-DMG-Calc-WiP/main/data/_schemas/weapon.schema.json",
     "id": "training-rectifier",
     "name": "Training Rectifier",
     "rarity": 1,

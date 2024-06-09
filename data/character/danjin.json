@@ -1,4 +1,5 @@
 {
+    "$schema": "https://raw.githubusercontent.com/Alyminya/WuWa-DMG-Calc-WiP/main/data/_schemas/character.schema.json",
     "id": "danjin",
     "name": "Danjin",
     "rarity": 4,
