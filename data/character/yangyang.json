@@ -33,6 +33,100 @@
             "(f)h": [19.12, 20.69, 22.26, 24.45, 26.02, 27.82, 30.33, 32.84, 35.35, 38.02],
             "(f)ma@1": [10.93, 11.83, 12.72, 13.98, 14.88, 15.91, 17.34, 18.78, 20.21, 21.73],
             "(f)ma@2": [63.78, 69.01, 74.24, 81.57, 86.80, 92.81, 101.18, 109.55, 117.92, 126.81]
+        },
+        "meta": {
+            "1a": {
+                "skill": "a",
+                "strikes": 1,
+                "after": null
+            },
+            "2a": {
+                "skill": "a",
+                "strikes": 1,
+                "after": ["1a"]
+            },
+            "3a": {
+                "skill": "a",
+                "strikes": 1,
+                "after": ["2a"]
+            },
+            "4a@1": {
+                "skill": "a",
+                "strikes": 2,
+                "after": ["3a"],
+                "chain": "4a@2"
+            },
+            "4a@2": {
+                "skill": "a",
+                "stikes": 1,
+                "after": ["4a@1"]
+            },
+            "h": {
+                "skill": "h",
+                "strikes": 3,
+                "after": null
+            },
+            "p": {
+                "skill": "p",
+                "strikes": 1,
+                "after": null
+            },
+            "(z)h": {
+                "skill": "h",
+                "stikes": 1,
+                "after": ["h", "(d)a"]  
+            },
+            "(d)a": {
+                "skill": "a",
+                "strikes": 2,
+                "after": null
+            },
+            "e@1": {
+                "skill": "e",
+                "strikes": 4,
+                "after": null,
+                "chain": "e@2"
+            },
+            "e@2": {
+                "skill": "e",
+                "strikes": 1,
+                "after": ["e@1"]
+            },
+            "r@1": {
+                "skill": "r",
+                "strikes": 12,
+                "after": null,
+                "chain": "r@2"
+            },
+            "r@2": {
+                "skill": "r",
+                "strikes": 1,
+                "after": ["r@1"]
+            },
+            "i": {
+                "skill": "i",
+                "strikes": 2,
+                "after": null
+            },
+            "(f)h": {
+                "skill": "h",
+                "fe_req": 3,
+                "strikes": 2,
+                "after": null
+            },
+            "(f)ma@1": {
+                "skill": "a",
+                "fe_req": 3,
+                "strikes": 5,
+                "after": null,
+                "chain": "(f)ma@2"
+            },
+            "(f)ma@2": {
+                "skill": "a",
+                "fe_req": 3,
+                "strikes": 2,
+                "after": ["(f)ma@1"]
+            }
         }
     }
 }
