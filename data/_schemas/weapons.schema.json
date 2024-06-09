@@ -1,6 +1,5 @@
 {
     "$id": "https://github.com/Alyminya/WuWa-DMG-Calc-WiP/weapons",
-    "$dynamicRef": "https://json-schema.org/draft/2020-12/schema",
     "title": "List of weapons in the database",
     "type": "object",
     "additionalProperties": {"type": "string" }

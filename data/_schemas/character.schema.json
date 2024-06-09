@@ -1,6 +1,5 @@
 {
     "$id": "https://github.com/Alyminya/WuWa-DMG-Calc-WiP/character",
-    "$dynamicRef": "https://json-schema.org/draft/2020-12/schema",
     "title": "Character information",
     "type": "object",
     "properties": {
