@@ -39,7 +39,7 @@ class Build:
                 print("----------------------------")
 
 def load_weapons_from_csv(file_path):
-    weapons = []
+    weapons: list[Weapon] = []
     with open('data/weapons.json', mode='r') as weapons_json:
         weaps = json.load(weapons_json)
     for weapon_id in weaps:
@@ -47,7 +47,7 @@ def load_weapons_from_csv(file_path):
     return weapons
 
 def load_characters():
-    characters = []
+    characters: list[Character] = []
     with open('data/characters.json', mode='r') as chrs_json:
         chrs = json.load(chrs_json)
     for chr_id in chrs:
@@ -66,7 +66,7 @@ def main():
     # Display character options
     print("Select a character:")
     for i, char in enumerate(characters):
-        print(f"{i + 1}. {char.name} (Level: {char.level}, HP: {char.hp}, ATK: {char.atk}, DEF: {char.defense}, Crit Rate: {char.crit_rate}%, Crit Damage: {char.crit_dmg}%)")
+        print(f"{1+i}. {char.name} (Level: {char.level}, HP: {char.base_hp()}, ATK: {char.base_atk()}, DEF: {char.base_def()})")
 
     char_choice = int(input("Enter the number of the character you want to select: ")) - 1
     selected_char = characters[char_choice]
@@ -76,20 +76,20 @@ def main():
     # Display weapon options
     print("Select a weapon:")
     for i, weap in enumerate(weapons):
-        print(f"{i + 1}. {weap.name} (Type: {weap.type}, Flat ATK: {weap.flat_atk}, ATK Bonus: {weap.atk_bonus}%)")
+        print(f"{1+i}. {weap.name} (Type: {weap.type}, ATK: {weap.base_atk()}, ATK Bonus: {weap.substat()[1]*100}%)")
 
     weap_choice = int(input("Enter the number of the weapon you want to select: ")) - 1
     selected_weap = weapons[weap_choice]
     my_build.add_weapon(selected_weap)
     my_build.display_weapon()
 
-    Base_Flat_Damage = selected_char.atk + selected_weap.flat_atk
+    Base_Flat_Damage = selected_char.base_atk() + selected_weap.base_atk()
     Base_Flat_Bonus = 0.00
-    Base_Attack_Bonus = 1 + (selected_weap.atk_bonus / 100)
+    Base_Attack_Bonus = 1.0 + selected_weap.substat()[1]
     Base_Attack = Base_Flat_Damage * Base_Attack_Bonus
 
-    Crit_Rate = selected_char.crit_rate
-    Crit_Damage = selected_char.crit_dmg
+    Crit_Rate = selected_char.cr
+    Crit_Damage = selected_char.cd
 
     moveset = Moveset()
     calculator = DamageCalculator(Base_Attack, Crit_Damage, moveset)

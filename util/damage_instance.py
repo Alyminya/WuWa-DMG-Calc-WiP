@@ -19,8 +19,8 @@ class DamageCalculator:
         }
 
     def calculate_single_attack_damage(self, multiplier):
-        damage = self.base_attack * (multiplier / 100)
-        crit_damage_value = damage * (self.crit_damage / 100)
+        damage = self.base_attack * multiplier
+        crit_damage_value = damage * (self.crit_damage)
         return {"damage": damage, "crit_damage": crit_damage_value}
 
     def calculate_damage(self):
