@@ -104,10 +104,13 @@
                 "skill": "e",
                 "fe_req": 50,
                 "strikes": 1,
-                "after": null
+                "after": null,
+                "chain": "(f)e@2"
             },
             "(f)e@2": {
-                "strikes": 1
+                "skill": "e",
+                "strikes": 2,
+                "after": null
             },
             "(fe)1a": {
                 "skill": "a",
