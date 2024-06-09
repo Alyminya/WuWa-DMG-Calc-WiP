@@ -1,0 +1,12 @@
+{
+    "characters": [
+        {
+            "id": "danjin",
+            "path": "characer/danjin.json"
+        },
+        {
+            "id": "rover-spectro",
+            "path": "character/rover-spectro.json"
+        }
+    ]
+}
