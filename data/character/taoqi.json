@@ -118,7 +118,7 @@
                 "skill": "a",
                 "fe_req": 1,
                 "strikes": 0,
-                "after": null
+                "after": ["sp", "i"]
             },
             "(f)T2": {
                 "skill": "a",
