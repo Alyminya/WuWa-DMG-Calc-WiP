@@ -1,0 +1,62 @@
+{
+    "$id": "https://github.com/Alyminya/WuWa-DMG-Calc-WiP/character",
+    "$dynamicRef": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Character information",
+    "type": "object",
+    "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "rarity": { "type":"number" },
+        "weapon": {
+            "enum": ["sword", "broadblade", "pistols", "rectifier", "gauntlets"]
+        },
+        "element": {
+            "enum": ["havoc", "spectro", "glacio", "fusion", "electro", "aero"]
+        },
+        "affiliation": { "type": ["string", "null"] },
+        "birthplace":  { "type": ["string", "null"] },
+        "stats": {
+            "type": "object",
+            "properties": {
+                "hp":  { "type":"array", "minItems": 8, "maxItems": 8, "items": { "type": "number" } },
+                "atk": { "type":"array", "minItems": 8, "maxItems": 8, "items": { "type": "number" } },
+                "def": { "type":"array", "minItems": 8, "maxItems": 8, "items": { "type": "number" } }
+            }
+        },
+        "max_forte": { "type": "number" },
+        "attacks": {
+            "type": "object",
+            "properties": {
+                "multipliers": {
+                    "additionalProperties": {
+                        "type": "array",
+                        "minItems": 10,
+                        "maxItems": 10,
+                        "items": { "type": "number" }
+                    }
+                },
+                "meta": {
+                    "additionalProperties": {
+                        "type": "object",
+                        "properties": {
+                            "skill": { "type": "string" },
+                            "strikes": { "type": "number" },
+                            "sta_req":   { "type": "number" },
+                            "fe_req":    { "type": "number" },
+                            "fe_yield":  { "type": "number" },
+                            "con_yield": { "type": "number" },
+                            "after": {
+                                "type": ["null", "array"],
+                                "items": {
+                                    "type": "string"
+                                },
+                                "uniqueItems": true
+                            },
+                            "chain": { "type": "string" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

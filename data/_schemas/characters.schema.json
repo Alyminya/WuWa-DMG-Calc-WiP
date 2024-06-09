@@ -1,0 +1,7 @@
+{
+    "$id": "https://github.com/Alyminya/WuWa-DMG-Calc-WiP/characters",
+    "$dynamicRef": "https://json-schema.org/draft/2020-12/schema",
+    "title": "List of characters in the database",
+    "type": "object",
+    "additionalProperties": {"type": "string" }
+}

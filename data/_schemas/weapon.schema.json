@@ -1,0 +1,22 @@
+{
+    "$id": "https://github.com/Alyminya/WuWa-DMG-Calc-WiP/weapon",
+    "$dynamicRef": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Weapon information",
+    "type": "object",
+    "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "rarity": { "type":"number" },
+        "type": {
+            "enum": ["sword", "broadblade", "pistols", "rectifier", "gauntlets"]
+        },
+        "atk":  { "type":"array", "maxItems": 8, "items": { "type": "number" } },
+        "substat": {
+            "type": "object",
+            "properties": {
+                "substat": { "enum": ["atk", "def", "hp", "er", "cr", "cd"] },
+                "scaling": { "type": "array", "maxItems": 8, "items": { "type": "number" } }
+            }
+        }
+    }
+}
