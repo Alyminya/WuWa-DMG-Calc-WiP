@@ -66,65 +66,77 @@
                 "after": null
             },
             "(3at)a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["3a", "h"]
             },
             "(3ata)a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["(3at)a", "(d)a"]
             },
             "p": {
-                "skill": "p",
+                "forte_type": "a",
+                "atk_type": "p",
                 "strikes": 1,
                 "after": ["(3at)a", "(d)a"]
             },
             "(d)a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["d"]
             },
             "e": {
-                "skill": "e",
+                "forte_type": "e",
+                "atk_type": "e",
                 "strikes": 1,
                 "after": null
             },
             "r@1": {
-                "skill": "r",
+                "forte_type": "r",
+                "atk_type": "r",
                 "strikes": 1,
                 "after": null,
                 "chain": "r@2"
             },
             "r@2": {
-                "skill": "r",
+                "forte_type": "r",
+                "atk_type": "r",
                 "strikes": 1,
                 "after": null
             },
             "i": {
-                "skill": "i",
+                "forte_type": "i",
+                "atk_type": "i",
                 "strikes": 1,
                 "after": null
             },
             "(f)e": {
-                "skill": "e",
+                "forte_type": "f",
+                "atk_type": "e",
                 "fe_req": 50,
                 "strikes": 1,
                 "after": null,
                 "chain": "(f)e@2"
             },
             "(f)e@2": {
-                "skill": "e",
+                "forte_type": "f",
+                "atk_type": "e",
                 "strikes": 2,
                 "after": null
             },
             "(fe)1a": {
-                "skill": "a",
+                "forte_type": "f",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["(f)e"]
             },
             "(fe)2a": {
-                "skill": "a",
+                "forte_type": "f",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["(fe)1a"]
             }
