@@ -7,6 +7,17 @@ Element = Enum('Element', ['spectro', 'havoc', 'glacio', 'fusion', 'aero', 'elec
 
 Substat = Enum('Substat', ['atk', 'hp', 'def', 'er', 'cr', 'cd'])
 
+class Forte:
+    id: str
+    skill: str
+    strikes: int
+    after: list[str]|None
+    chain: str|None
+    sta_req: int|None
+    fe_req: int|None
+    fe_yield: int|None
+    con_yield: int|None
+
 class Character_Info:
     id: str
     name: str
@@ -20,6 +31,9 @@ class Character_Info:
     base_atk_scaling: list[float]
     base_def_scaling: list[float]
     max_forte: int
+    forte_multipliers: dict[str, list[float]]
+    fortes: dict[str, Forte]
+
 
 class Weapon_Info:
     id: str

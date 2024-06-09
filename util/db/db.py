@@ -3,6 +3,7 @@ import os.path
 import json
 from . import model
 import jsonschema
+from typing import Any, Type, Callable
 
 DB_PATH = './data'
 WEAPONS_DATA    = 'weapons.json'
@@ -30,6 +31,13 @@ def load_validate_json(json_path: str, json_schema_path: str):
     jsonschema.validate(data, schema)
     return data
 
+def opt_field[T,U](cls: Callable[[Any], T], data: dict[str, Any], key: str, default: U) -> T|U:
+    # TODO(flysand): These should probably do run-time type checks as well
+    # otherwise we're in for a lot of trouble. I'm not that experienced
+    # in python to be able to do it correctly. Even figuring out the correct
+    # signature for this function was a lot...
+    return cls(data[key]) if key in data else default
+
 def load_db() -> model.DB:
     db = model.DB()
     db.characters = {}
@@ -47,6 +55,22 @@ def load_db() -> model.DB:
         character.max_forte = character_data['max_forte']
         character.weapon = character_data['weapon']
         character.element = character_data['element']
+        character.forte_multipliers = character_data['attacks']['multipliers']
+        forte_meta = character_data['attacks']['meta']
+        character.fortes = {}
+        for forte_id in forte_meta:
+            meta = forte_meta[forte_id]
+            forte = model.Forte()
+            forte.id = forte_id
+            forte.skill     = meta['skill']
+            forte.strikes   = meta['strikes']
+            forte.after     = meta['after']
+            forte.chain     = opt_field(str, meta, 'chain', None)
+            forte.fe_req    = opt_field(int, meta, 'fe_req', None)
+            forte.fe_yield  = opt_field(int, meta, 'fe_yield', None)
+            forte.sta_req   = opt_field(int, meta, 'stamina', None) # TODO(flysand): rename the field
+            forte.con_yield = opt_field(int, meta, 'con_yield', None)
+            character.fortes[forte_id] = forte
         db.characters[character.id] = character
     db.weapons = {}
     weapons_data = load_validate_json(fp_weapons_data, fp_weapons_schema)

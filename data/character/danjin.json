@@ -111,40 +111,40 @@
                 "after": ["2E"]
             },
             "r": {
-                "type": "r",
+                "skill": "r",
                 "strikes": 8,
                 "after": null,
                 "chain": "(r)r"
             },
             "(r)r": {
-                "type": "r",
+                "skill": "r",
                 "strikes": 1,
                 "after": []
             },
             "i": {
-                "type": "i",
+                "skill": "i",
                 "strikes": 4,
                 "after": null
             },
             "(f)h": {
-                "type": "h",
+                "skill": "h",
                 "strikes": 7,
                 "fe_req": 60,
                 "after": null
             },
             "(fh)a": {
-                "type": "a",
+                "skill": "a",
                 "strikes": 1,
                 "after": ["(f)h"]
             },
             "(f)H": {
-                "type": "h",
+                "skill": "h",
                 "strikes": 7,
                 "fe_req": 120,
                 "after": null
             },
             "(fH)a": {
-                "type": "a",
+                "skill": "a",
                 "strikes": 1,
                 "after": ["(f)H"]
             }
