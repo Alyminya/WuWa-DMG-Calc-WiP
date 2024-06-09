@@ -38,7 +38,8 @@
                     "additionalProperties": {
                         "type": "object",
                         "properties": {
-                            "skill": { "type": "string" },
+                            "forte_type": { "enum": ["a","e","f","r","o"] },
+                            "atk_type": { "enum": ["a","h","p","e","r","i","o"] },
                             "strikes": { "type": "number" },
                             "sta_req":   { "type": "number" },
                             "fe_req":    { "type": "number" },
@@ -52,10 +53,20 @@
                                 "uniqueItems": true
                             },
                             "chain": { "type": "string" }
-                        }
+                        },
+                        "required": [
+                            "forte_type",
+                            "atk_type",
+                            "strikes",
+                            "after"
+                        ]
                     }
                 }
-            }
+            },
+            "required": [ "multipliers", "meta" ]
         }
-    }
+    },
+    "required": [
+        "id", "name", "rarity", "weapon", "element", "stats", "max_forte", "attacks"
+    ]
 }

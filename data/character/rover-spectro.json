@@ -36,27 +36,32 @@
         },
         "meta": {
             "1a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "2a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["1a"]
             },
             "3a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 5,
                 "after": ["2a"]
             },
             "4a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["3a"]
             },
             "h": {
-                "skill": "h",
+                "forte_type": "a",
+                "atk_type": "h",
                 "strikes": 5,
                 "after": null
             },
