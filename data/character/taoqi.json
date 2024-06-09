@@ -34,6 +34,104 @@
             "(f)T1": [11.25, 11.70, 12.15, 12.82, 13.72, 14.62, 16.31, 18.22, 20.25, 23.62], 
             "(f)T2": [16.87, 17.55, 18.22, 19.23, 20.58, 21.93, 24.46, 27.33, 30.37, 35.43],
             "(f)T3": [28.12, 29.25, 30.37, 32.06, 34.43, 36.56, 40.78, 45.56, 50.62, 59.06]
+        },
+         "meta": {
+            "1a": {
+            "skill": "a",
+            "strikes": 1,
+            "after": null
+           },
+           "2a": {
+            "skill": "a",
+            "strikes": 1,
+            "after": ["1a"]
+           },
+           "3a": {
+            "skill": "a",
+            "strikes": 1,
+            "after": ["2a"]
+           },
+           "4a": {
+            "skill": "a",
+            "strikes": 1,
+            "after": ["3a"]
+           },
+           "h": {
+            "skill": "h",
+            "strikes": 1,
+            "after": null
+           },
+           "sp": {
+            "skill": "sp",
+            "strikes": 1,
+            "after": null
+           },
+           "p": {
+            "skill": "p",
+            "strikes": 1,
+            "after": null
+           },
+           "(d)a": {
+            "skill": "a",
+            "strikes": 1,
+            "after": null
+           },
+           "e": {
+            "skill": "e",
+            "strikes": 1,
+            "after": null
+           },
+           "(h)e": {
+            "skill": "e",
+            "strikes": 0,
+            "after": null
+           },
+           "r": {
+            "skill": "r",
+            "strikes": 1,
+            "after": null
+           },
+           "i": {
+            "skill": "i",
+            "strikes": 1,
+            "after": null
+           },
+           "(f)t1": {
+            "skill": "a",
+            "fe_req": 1,
+            "strikes": 1,
+            "after": null
+           },
+           "(f)t2": {
+            "skill": "a",
+            "fe_req": 1,
+            "strikes": 1,
+            "after": ["(f)t1"]
+           },
+           "(f)t3": {
+            "skill": "a",
+            "fe_req": 1,
+            "strikes": 1,
+            "after": ["(f)t2"]
+           },
+           "(f)T1": {
+            "skill": "a",
+            "fe_req": 1,
+            "strikes": 0,
+            "after": null
+           },
+           "(f)T2": {
+            "skill": "a",
+            "fe_req": 1,
+            "strikes": 0,
+            "after": ["(f)T1"]
+           },
+           "(f)T3": {
+            "skill": "a",
+            "fe_req": 1,
+            "strikes": 0,
+            "after": ["(f)T2"]
+         }
         }
     }
 }
