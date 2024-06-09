@@ -1,4 +1,5 @@
 import csv
+import json
 from util.character import Character
 from util.weapon import Weapon
 from util.moveset import Moveset
@@ -20,11 +21,11 @@ class Build:
             if isinstance(c, Character):
                 print("Character: ", c.name)
                 print("Level: ", c.level)
-                print("HP: ", c.hp)
-                print("ATK: ", c.atk)
-                print("DEF: ", c.defense)
-                print(f"Crit Rate:  {c.crit_rate:.1f}%")
-                print(f"Crit Damage:  {c.crit_dmg:.1f}%")
+                print("Base HP: ", c.base_hp())
+                print("Base ATK: ", c.base_atk())
+                print("Base DEF: ", c.base_def())
+                print(f"Crit Rate:  {c.cr*100:.1f}%")
+                print(f"Crit Damage:  {c.cd*100:.1f}%")
                 print("----------------------------")
 
     def display_weapon(self):
@@ -50,27 +51,19 @@ def load_weapons_from_csv(file_path):
             ))
     return weapons
 
-def load_characters_from_csv(file_path):
+def load_characters():
     characters = []
-    with open(file_path, mode='r') as infile:
-        reader = csv.DictReader(infile)
-        for row in reader:
-            characters.append(Character(
-                name=row['name'],
-                level=int(row['level']),
-                hp=float(row['hp']),
-                atk=float(row['atk']),
-                defense=float(row['defense']),
-                crit_rate=float(row['crit_rate']),
-                crit_dmg=float(row['crit_dmg'])
-            ))
+    with open('data/characters.json', mode='r') as chrs_json:
+        chrs = json.load(chrs_json)
+    for chr_id in chrs:
+        characters.append(Character.by_id(chr_id, level = 90))
     return characters
 
 def main():
     my_build = Build()
 
     # Load characters from CSV
-    characters = load_characters_from_csv('data/characters.csv')
+    characters = load_characters()
 
     # Load weapons from CSV
     weapons = load_weapons_from_csv('data/weapons.csv')

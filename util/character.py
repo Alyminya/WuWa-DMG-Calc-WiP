@@ -1,5 +1,6 @@
 import json
 import math
+import os.path
 
 class Character:
     id: str
@@ -37,7 +38,7 @@ class Character:
         with open("data/characters.json") as chrs_json:
             chrs = json.load(chrs_json)
             data_path = chrs[id]
-        with open(data_path) as chr_json:
+        with open(os.path.join('data', data_path)) as chr_json:
             chr = json.load(chr_json)
         return cls(
             id = id,
@@ -47,14 +48,6 @@ class Character:
             atk_scaling = chr["stats"]["atk"],
             defn_scaling = chr["stats"]["def"],
         )
-
-    def update_stats(self, **kwargs):
-        """Update character stats."""
-        for key, value in kwargs.items():
-            if hasattr(self, key):
-                setattr(self, key, value)
-            else:
-                raise AttributeError(f"{key} is not a valid attribute of Character")
 
     def ascension(self) -> int:
         asc = math.floor(self.level / 10)
