@@ -30,107 +30,101 @@
             "i": [105.00, 113.61, 122.22, 134.28, 142.89, 152.79, 166.57, 180.37, 194.12, 208.76],
             "(f)t1": [43.36, 46.92, 50.47, 55.45, 59.00, 63.09, 68.78, 74.47, 80.16, 86.20],
             "(f)t2": [55.80, 60.38, 64.95, 71.36, 75.93, 81.19, 88.51, 95.83, 103.16, 110.93],
-            "(f)t3": [73.14, 79.14, 85.14, 93.53, 99.53, 106.43, 116.02, 125.62, 135.22, 145.41],
-            "(f)T1": [11.25, 11.70, 12.15, 12.82, 13.72, 14.62, 16.31, 18.22, 20.25, 23.62], 
-            "(f)T2": [16.87, 17.55, 18.22, 19.23, 20.58, 21.93, 24.46, 27.33, 30.37, 35.43],
-            "(f)T3": [28.12, 29.25, 30.37, 32.06, 34.43, 36.56, 40.78, 45.56, 50.62, 59.06]
+            "(f)t3": [73.14, 79.14, 85.14, 93.53, 99.53, 106.43, 116.02, 125.62, 135.22, 145.41]
         },
         "meta": {
             "1a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "2a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["1a"]
             },
             "3a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["2a"]
             },
             "4a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["3a"]
             },
             "h": {
-                "skill": "h",
+                "forte_type": "a",
+                "atk_type": "h",
                 "strikes": 1,
                 "after": null
             },
             "sp": {
-                "skill": "sp",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "p": {
-                "skill": "p",
+                "forte_type": "a",
+                "atk_type": "p",
                 "strikes": 1,
                 "after": null
             },
             "(d)a": {
-                "skill": "a",
+                "forte_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["d"]
             },
             "e": {
-                "skill": "e",
+                "forte_type": "e",
+                "atk_type": "e",
                 "strikes": 1,
                 "after": null
             },
             "(h)e": {
-                "skill": "e",
+                "forte_type": "e",
+                "atk_type": "e",
                 "strikes": 0,
                 "after": null
             },
             "r": {
-                "skill": "r",
+                "forte_type": "r",
+                "atk_type": "r",
                 "strikes": 1,
                 "after": null
             },
             "i": {
-                "skill": "i",
+                "forte_type": "i",
+                "atk_type": "i",
                 "strikes": 1,
                 "after": null
             },
-            "(f)t1": {
-                "skill": "a",
+            "(f)ta1": {
+                "forte_type": "f",
+                "atk_type": "a",
                 "fe_req": 1,
                 "strikes": 1,
                 "after": ["sp", "i"]
             },
-            "(f)t2": {
-                "skill": "a",
+            "(f)ta2": {
+                "forte_type": "f",
+                "atk_type": "a",
                 "fe_req": 1,
                 "strikes": 1,
                 "after": ["(f)t1"]
             },
-            "(f)t3": {
-                "skill": "a",
+            "(f)ta3": {
+                "forte_type": "f",
+                "atk_type": "a",
                 "fe_req": 1,
                 "strikes": 1,
                 "after": ["(f)t2"]
-            },
-            "(f)T1": {
-                "skill": "a",
-                "fe_req": 1,
-                "strikes": 0,
-                "after": ["sp", "i"]
-            },
-            "(f)T2": {
-                "skill": "a",
-                "fe_req": 1,
-                "strikes": 0,
-                "after": ["(f)T1"]
-            },
-            "(f)T3": {
-                "skill": "a",
-                "fe_req": 1,
-                "strikes": 0,
-                "after": ["(f)T2"]
             }
         }
     }
