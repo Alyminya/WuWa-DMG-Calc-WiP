@@ -38,7 +38,7 @@
                     "additionalProperties": {
                         "type": "object",
                         "properties": {
-                            "forte_type": { "enum": ["a","e","f","r","o"] },
+                            "forte_type": { "enum": ["a","e","f","r","i"] },
                             "atk_type": { "enum": ["a","h","p","e","r","i","o"] },
                             "strikes": { "type": "number" },
                             "sta_req":   { "type": "number" },
