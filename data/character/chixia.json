@@ -1,0 +1,16 @@
+{
+    "$schema": "https://raw.githubusercontent.com/Alyminya/WuWa-DMG-Calc-WiP/main/data/_schemas/character.schema.json",
+    "id": "chxixia",
+    "name": "Chixia",
+    "rarity": 4,
+    "weapon": "pistols",
+    "element": "fusion",
+    "birthday": "04/18",
+    "affiliation": "jinzhou",
+    "birthplace": "huanglong",
+    "stats": {
+       "hp": [727.00, 2375.62, 4085.59, 5182.93, 6280.19, 7377.52, 8474.86, 9087.50],
+       "atk": [24.00, 80.43, 138.88, 177.10, 215.33, 247.55, 279.78, 300.00],
+       "def": [78.00, 250.66, 429.76, 544.58, 659.41, 774.24, 889.06, 953.33] 
+    },
+}
