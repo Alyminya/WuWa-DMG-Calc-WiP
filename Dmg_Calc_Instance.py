@@ -1,4 +1,3 @@
-import csv
 import json
 from util.character import Character
 from util.weapon import Weapon
@@ -38,7 +37,7 @@ class Build:
                 print(f"ATK Bonus: {w.substat()[1]:.1f}%")
                 print("----------------------------")
 
-def load_weapons_from_csv(file_path):
+def load_weapons(file_path):
     weapons: list[Weapon] = []
     with open('data/weapons.json', mode='r') as weapons_json:
         weaps = json.load(weapons_json)
@@ -61,7 +60,7 @@ def main():
     characters = load_characters()
 
     # Load weapons from CSV
-    weapons = load_weapons_from_csv('data/weapons.csv')
+    weapons = load_weapons('data/weapons.csv')
 
     # Display character options
     print("Select a character:")
