@@ -51,9 +51,7 @@ def load_db() -> model.DB:
     db.weapons = {}
     weapons_data = load_validate_json(fp_weapons_data, fp_weapons_schema)
     for weapon_id in weapons_data:
-        fp_weapon_data = os.path.join(DB_PATH, weapons_data[weapon_id])
-        print(fp_weapon_data)
-        weapon_data = load_validate_json(fp_weapon_data, fp_weapon_schema)
+        weapon_data = load_validate_json(os.path.join(DB_PATH, weapons_data[weapon_id]), fp_weapon_schema)
         weapon = model.Weapon_Info()
         weapon.id = weapon_data['id']
         weapon.name = weapon_data['name']
