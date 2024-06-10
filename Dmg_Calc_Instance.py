@@ -1,9 +1,8 @@
 import json
 from util.character import Character
 from util.weapon import Weapon
-from util.moveset import Moveset
-from util.damage_instance import DamageCalculator
 
+import util.damage
 import util.db
 import util.db.model
 
@@ -49,9 +48,16 @@ def load_weapons(weapon_type: util.db.model.Weapon_Type):
     return weapons
 
 def load_characters():
+    default_forte: dict[util.db.Forte_Type, int] = {
+        'a': 10,
+        'e': 10,
+        'f': 10,
+        'r': 10,
+        'i': 10,
+    }
     characters: list[Character] = []
     for chr_id in util.db.data.characters:
-        characters.append(Character(chr_id, level = 90))
+        characters.append(Character(chr_id, level = 90, forte_levels = default_forte))
     return characters
 
 def main():
@@ -80,28 +86,13 @@ def main():
     my_build.add_weapon(selected_weap)
     my_build.display_weapon()
 
-    Base_Flat_Damage = selected_char.base_atk() + selected_weap.base_atk()
-    Base_Flat_Bonus = 0.00
-    Base_Attack_Bonus = 1.0 + selected_weap.substat()[1]
-    Base_Attack = Base_Flat_Damage * Base_Attack_Bonus
-
-    Crit_Rate = selected_char.cr()
-    Crit_Damage = selected_char.cd()
-
-    moveset = Moveset()
-    calculator = DamageCalculator(Base_Attack, Crit_Damage, moveset)
-    damage_results = calculator.calculate_damage()
-
-    for attack_type, attacks in damage_results.items():
-        print(attack_type + ":")
-        if isinstance(attacks, list):
-            for attack in attacks:
-                print(f"{attack['name']} damage: {attack['damage']:.2f}")
-                print(f"{attack['name']} crit damage: {attack['crit_damage']:.2f}")
-        else:
-            print(f"Damage: {attacks['damage']:.2f}")
-            print(f"Crit damage: {attacks['crit_damage']:.2f}")
-        print("---------------------------")
+    print()
+    print('Attack', (60-len('Attack'))*' ', ' non-crit     ', 'crit', sep='')
+    print('-'*60, ' ', '-'*12, ' ', '-'*12, sep='')
+    for attack_id in selected_char.attacks():
+        attack = selected_char.info.attacks[attack_id]
+        non_crit_dmg, crit_dmg = util.damage.simple_damage(selected_char, selected_weap, attack_id)
+        print(attack.name, ":", (60-len(attack.name)-1)*' ', f'{non_crit_dmg:>12.2f}', " ", f'{crit_dmg:>12.2f}', sep="")
 
 if __name__ == "__main__":
     main()

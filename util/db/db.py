@@ -3,7 +3,9 @@ import os.path
 import json
 from . import model
 import jsonschema
-from typing import Any, Type, Callable
+from typing import Any, Type, Callable, Generic, Mapping
+import typing
+import enum
 
 DB_PATH = './data'
 WEAPONS_DATA    = 'weapons.json'
@@ -55,22 +57,24 @@ def load_db() -> model.DB:
         character.max_forte = character_data['max_forte']
         character.weapon = character_data['weapon']
         character.element = character_data['element']
-        character.forte_multipliers = character_data['attacks']['multipliers']
-        forte_meta = character_data['attacks']['meta']
-        character.fortes = {}
-        for forte_id in forte_meta:
-            meta = forte_meta[forte_id]
-            forte = model.Forte()
-            forte.id = forte_id
-            forte.skill     = meta['skill']
-            forte.strikes   = meta['strikes']
-            forte.after     = meta['after']
-            forte.chain     = opt_field(str, meta, 'chain', None)
-            forte.fe_req    = opt_field(int, meta, 'fe_req', None)
-            forte.fe_yield  = opt_field(int, meta, 'fe_yield', None)
-            forte.sta_req   = opt_field(int, meta, 'stamina', None) # TODO(flysand): rename the field
-            forte.con_yield = opt_field(int, meta, 'con_yield', None)
-            character.fortes[forte_id] = forte
+        character.attack_multipliers = character_data['attacks']['multipliers']
+        attack_meta = character_data['attacks']['meta']
+        character.attacks = {}
+        for attack_id in attack_meta:
+            meta = attack_meta[attack_id]
+            attack = model.Attack()
+            attack.id = attack_id
+            attack.name = meta['name']
+            attack.forte_type = meta['forte_type']
+            attack.atk_type = meta['atk_type']
+            attack.strikes = meta['strikes']
+            attack.after = meta['after']
+            attack.chain = opt_field(str, meta, 'chain', None)
+            attack.fe_req = opt_field(int, meta, 'fe_req', None)
+            attack.fe_yield = opt_field(int, meta, 'fe_yield', None)
+            attack.sta_req = opt_field(int, meta, 'stamina', None) # TODO(flysand): rename the field
+            attack.con_yield = opt_field(int, meta, 'con_yield', None)
+            character.attacks[attack_id] = attack
         db.characters[character.id] = character
     db.weapons = {}
     weapons_data = load_validate_json(fp_weapons_data, fp_weapons_schema)
