@@ -143,9 +143,12 @@ def main_file(json_data: dict) -> None:
     test_build.display_team()
 
 if __name__ == "__main__":
-    if sys.argv[1] == "-f":
+    if len(sys.argv) > 1 and sys.argv[1] == "-f":
+        if len(sys.argv) < 3:
+            print(f'{sys.argv[0]} -f <file.json>')
         json_file = sys.argv[2]
         with open(json_file, "r") as f:
             json_data = json.load(f)
         main_file(json_data)
-    # main()
+    else:
+        print(f'{sys.argv[0]} -f <file.json>')
