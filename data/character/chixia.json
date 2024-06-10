@@ -34,7 +34,7 @@
         },
         "meta": {
             "1a": {
-                "name": "POW POW part 1",
+                "name": "Basic Attack: POW POW part 1",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
@@ -42,7 +42,7 @@
                 "after": null
             },
             "2a": {
-                "name": "POW POW part 2",
+                "name": "Basic Attack: POW POW part 2",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 2,
@@ -50,7 +50,7 @@
                 "after": ["1a"]
             },
             "3a": {
-                "name": "POW POW part 3",
+                "name": "Basic Attack: POW POW part 3",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 4,
@@ -58,7 +58,7 @@
                 "after": ["2a"]
             },
             "4a": {
-                "name": "POW POW part 4",
+                "name": "Basic Attack: POW POW part 4",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
@@ -94,14 +94,14 @@
                 "after": ["d"]
             },
             "e": {
-                "name": "Whizzing Fight Spirit",
+                "name": "Resonance Skill: Whizzing Fight Spirit",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 8,
                 "after": null
             },
             "r@1": {
-                "name": "Blazing Flames part 1",
+                "name": "Resonance Liberation: Blazing Flames part 1",
                 "forte_type": "r",
                 "atk_type": "r",
                 "strikes": 1,
@@ -109,14 +109,14 @@
                 "chain": "r@2"
             },
             "r@2": {
-                "name": "Blazing Flames part 2",
+                "name": "Resonance Liberation: Blazing Flames part 2",
                 "forte_type": "r",
                 "atk_type": "r",
                 "strikes": 11,
                 "after": ["r@1"]
             },
             "i@1": {
-                "name": "Grand Entrance part 1",
+                "name": "Intro Skill: Grand Entrance part 1",
                 "forte_type": "i",
                 "atk_type": "i",
                 "strikes": 2,
@@ -125,14 +125,14 @@
                 "chain": "i@2"
             },
             "i@2": {
-                "name": "Grand Entrance part 2",
+                "name": "Intro Skill: Grand Entrance part 2",
                 "forte_type": "i",
                 "atk_type": "i",
                 "strikes": 4,
                 "after": ["i@1"]
             },
             "(f)e": {
-                "name": "Heroic Bullets - Thermobaric Bullets",
+                "name": "Forte Circuit: Heroic Bullets - Thermobaric Bullets",
                 "forte_type": "f",
                 "atk_type": "e",
                 "fe_req": 1,
@@ -140,7 +140,7 @@
                 "after": null
             },
             "(f)a": {
-                "name": "Heroic Bullets - POW POW",
+                "name": "Forte Circuit: Heroic Bullets - POW POW",
                 "forte_type": "f",
                 "atk_type": "a",
                 "fe_req": 1,
