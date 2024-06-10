@@ -1,0 +1,32 @@
+{
+    "characters": {
+        "rover-spectro": {
+            "level": 90,
+            "weapon": {
+                "weapon_id": "training-sword",
+                "level": 70   
+            },
+            "forte_levels": {
+                "a": 10,
+                "e": 10,
+                "f": 10,
+                "r": 10,
+                "i": 10
+            },
+            "echo_set_bonus": [5],
+            "echo_sets": ["lingering-tunes"],
+            "mainstats": ["cr", "havoc", "havoc", "atk%", "atk%"],
+            "substats": {
+                "cr": 20,
+                "cd": 40,
+                "atk%": 30,
+                "er": 25
+            }
+        }
+    },
+    "rotation": {
+        "action_1": {
+            "rover": "1a"
+        }
+    }
+}

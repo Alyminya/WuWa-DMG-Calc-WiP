@@ -1,3 +1,8 @@
+import sys
+import json
+
+from tabulate import tabulate
+
 from util.character import Character
 from util.weapon import Weapon
 
@@ -37,6 +42,44 @@ class Build:
                 print("Flat ATK: ", w.base_atk())
                 print(f"ATK Bonus: {w.substat()[1]:.1f}%")
                 print("----------------------------")
+
+class TeamBuild:
+    team: dict
+    def __init__(self) -> None:
+        self.team = {}
+
+    def add_character(self, built_character: Character) -> None:
+        self.team[built_character.info.id] = built_character
+
+    def add_weapon(self, built_weapon: Weapon, character_id: str) -> None:
+        if character_id in self.team:
+            self.team[character_id].weapon = built_weapon
+
+    def display_team(self) -> None:
+        for chr_id, character in self.team.items():
+            character_info = f"""
+Character:  {character.info.name}
+    Level:          {character.level}
+    Base HP:        {character.base_hp()}
+    Base DEF:       {character.base_def()}
+    Base ATK:       {character.base_atk()}
+    Crit Rate:      {character.cr()*100:.1f}%
+    Crit Damage:    {character.cd()*100:.1f}%
+    Weapon:         {character.weapon.info.name}
+        Weapon Type:    {character.weapon.info.type}
+        Base Attack:    {character.weapon.base_atk()}
+        Substat:        {character.weapon.substat()[1]:.1f}% {character.weapon.substat()[0]}
+            """
+            
+            headers = ["Attack", "Non-Crit", "Crit"]
+            row_list = []
+            for attack_id in character.attacks():
+                non_crit, crit = util.damage.simple_damage(character, character.weapon, attack_id)
+                row_list.append(
+                    [character.info.attacks[attack_id].name, f'{non_crit:.0f}', f'{crit:.0f}']
+                )
+            print(character_info)
+            print(tabulate(row_list, headers=headers))
 
 def load_weapons(weapon_type: util.db.model.Weapon_Type) -> list[Weapon]:
     weapons: list[Weapon] = []
@@ -92,5 +135,17 @@ def main() -> None:
         non_crit_dmg, crit_dmg = util.damage.simple_damage(selected_char, selected_weap, attack_id)
         print(attack.name, ":", (60-len(attack.name)-1)*' ', f'{non_crit_dmg:>12.2f}', " ", f'{crit_dmg:>12.2f}', sep="")
 
+def main_file(json_data: dict) -> None:
+    test_build = TeamBuild()
+    for character, info in json_data["characters"].items():
+        test_build.add_character(Character(character, level = info["level"], forte_levels = info["forte_levels"]))
+        test_build.add_weapon(Weapon(info["weapon"]["weapon_id"], level = info["weapon"]["level"]), character)
+    test_build.display_team()
+
 if __name__ == "__main__":
-    main()
+    if sys.argv[1] == "-f":
+        json_file = sys.argv[2]
+        with open(json_file, "r") as f:
+            json_data = json.load(f)
+        main_file(json_data)
+    # main()

@@ -144,14 +144,14 @@
                 "after": null
             },
             "(fe)1a": {
-                "name": "Basic Attack: Resonatinc Echoes Part 1",
+                "name": "Basic Attack: Resonating Echoes Part 1",
                 "forte_type": "f",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": ["(f)e"]
             },
             "(fe)2a": {
-                "name": "Basic Attack: Resonatinc Echoes Part 2",
+                "name": "Basic Attack: Resonating Echoes Part 2",
                 "forte_type": "f",
                 "atk_type": "a",
                 "strikes": 1,
