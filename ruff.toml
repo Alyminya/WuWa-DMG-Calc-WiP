@@ -1,0 +1,8 @@
+target-version = "py312"
+
+[lint]
+# E701: Multiple statements on the same line (Useful for e.g. `if cond: do_thing()` style of code)
+ignore = ["E701"]
+
+[format]
+indent-style = "space"

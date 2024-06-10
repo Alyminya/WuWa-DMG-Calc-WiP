@@ -1,6 +1,5 @@
 import sympy as sp
 
-from . import db
 from .character import Character
 from .weapon import Weapon
 

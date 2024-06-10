@@ -3,9 +3,7 @@ import os.path
 import json
 from . import model
 import jsonschema
-from typing import Any, Type, Callable, Generic, Mapping
-import typing
-import enum
+from typing import Any, Callable
 
 DB_PATH = './data'
 WEAPONS_DATA    = 'weapons.json'

@@ -1,4 +1,3 @@
-import json
 from util.character import Character
 from util.weapon import Weapon
 
