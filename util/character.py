@@ -6,11 +6,13 @@ class Character:
     info: db.model.Character_Info
     level: int
     forte_levels: dict[db.model.Forte_Type, int]
+    weapon: db.model.Weapon_Info
 
     def __init__(self, id: str, level: int, forte_levels: dict[db.model.Forte_Type, int]) -> None:
         self.info = db.data.characters[id]
         self.level = level
         self.forte_levels = forte_levels
+        self.weapon = db.data.weapons["training-" + self.info.weapon]
 
     def ascension(self) -> int:
         asc = math.floor(self.level / 10)
