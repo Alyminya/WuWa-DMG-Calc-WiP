@@ -98,6 +98,7 @@
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 8,
+                "fe_yield": 25,
                 "after": null
             },
             "r@1": {
@@ -137,10 +138,10 @@
                 "atk_type": "e",
                 "fe_req": 1,
                 "strikes": 1,
-                "after": null
+                "after": ["4a"]
             },
             "(f)a": {
-                "name": "Forte Circuit: Heroic Bullets - POW POW",
+                "name": "Forte Circuit: Heroic Bullets - Boom Boom",
                 "forte_type": "f",
                 "atk_type": "a",
                 "fe_req": 1,
