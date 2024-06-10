@@ -6,16 +6,16 @@ import util.db
 import util.db.model
 
 class Build:
-    def __init__(self):
+    def __init__(self) -> type(self):
         self.build = []
 
-    def add_character(self, built_character):
+    def add_character(self, built_character: Character) -> None:
         self.build.append(built_character)
 
-    def add_weapon(self, built_weapon):
+    def add_weapon(self, built_weapon: Weapon) -> None:
         self.build.append(built_weapon)
 
-    def display_character(self):
+    def display_character(self: type(self)) -> None:
         print("Current character:")
         for c in self.build:
             if isinstance(c, Character):
@@ -28,7 +28,7 @@ class Build:
                 print(f"Crit Damage:  {c.cd()*100:.1f}%")
                 print("----------------------------")
 
-    def display_weapon(self):
+    def display_weapon(self: type(self)) -> None:
         print("Current weapon:")
         for w in self.build:
             if isinstance(w, Weapon):
@@ -38,7 +38,7 @@ class Build:
                 print(f"ATK Bonus: {w.substat()[1]:.1f}%")
                 print("----------------------------")
 
-def load_weapons(weapon_type: util.db.model.Weapon_Type):
+def load_weapons(weapon_type: util.db.model.Weapon_Type) -> list[Weapon]:
     weapons: list[Weapon] = []
     for weapon_id in util.db.data.weapons:
         weapon = Weapon(weapon_id, level = 70)
@@ -46,7 +46,7 @@ def load_weapons(weapon_type: util.db.model.Weapon_Type):
             weapons.append(weapon)
     return weapons
 
-def load_characters():
+def load_characters() -> list[Character]:
     default_forte: dict[util.db.Forte_Type, int] = {
         'a': 10,
         'e': 10,
@@ -59,9 +59,8 @@ def load_characters():
         characters.append(Character(chr_id, level = 90, forte_levels = default_forte))
     return characters
 
-def main():
+def main() -> None:
     my_build = Build()
-
     characters = load_characters()
 
     # Display character options

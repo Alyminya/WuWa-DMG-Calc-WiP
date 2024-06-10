@@ -3,25 +3,22 @@ import sympy as sp
 from .character import Character
 from .weapon import Weapon
 
-def define_damage_formula():
-    CharacterATK, WeaponATK, bonusATK_percent, bonus_flat_ATK = sp.symbols('CharacterATK WeaponATK bonusATK_percent bonus_flat_ATK')
-    SkillMultiplier, SkillScalingBonus = sp.symbols('SkillMultiplier SkillScalingBonus')
-    bonusElementalDamage, bonusSkillDamage = sp.symbols('bonusElementalDamage bonusSkillDamage')
-    TotalDeepenEffect, CriticalDamageMultiplier = sp.symbols('TotalDeepenEffect CriticalDamageMultiplier')
-    EnemyResistance, ResistanceReduction = sp.symbols('EnemyResistance ResistanceReduction')
-
-    damage_formula = (
-        ((CharacterATK + WeaponATK) * (1 + bonusATK_percent) + bonus_flat_ATK)
-        * (SkillMultiplier * (1 + SkillScalingBonus))
-        * (1 + bonusElementalDamage + bonusSkillDamage)
-        * (1 + TotalDeepenEffect)
-        * CriticalDamageMultiplier
-        * 0.48 * (1 - EnemyResistance + ResistanceReduction)
-    )
-
-    return damage_formula
-
-damage_formula = define_damage_formula()
+# def define_damage_formula():
+#     CharacterATK, WeaponATK, bonusATK_percent, bonus_flat_ATK = sp.symbols('CharacterATK WeaponATK bonusATK_percent bonus_flat_ATK')
+#     SkillMultiplier, SkillScalingBonus = sp.symbols('SkillMultiplier SkillScalingBonus')
+#     bonusElementalDamage, bonusSkillDamage = sp.symbols('bonusElementalDamage bonusSkillDamage')
+#     deepen, CriticalDamageMultiplier = sp.symbols('TotalDeepenEffect CriticalDamageMultiplier')
+#     res_enemy, res_reduction = sp.symbols('EnemyResistance ResistanceReduction')
+#     damage_formula = (
+#         ((CharacterATK + WeaponATK) * (1 + bonusATK_percent) + bonus_flat_ATK)
+#         * (SkillMultiplier * (1 + SkillScalingBonus))
+#         * (1 + bonusElementalDamage + bonusSkillDamage)
+#         * (1 + deepen)
+#         * CriticalDamageMultiplier
+#         * 0.48 * (1 - res_enemy + res_reduction)
+#     )
+#     return damage_formula
+# damage_formula = define_damage_formula()
 
 def simple_damage(character: Character, weapon: Weapon, attack_id: str) -> tuple[float, float]:
     atk_base = character.base_atk() + weapon.base_atk()

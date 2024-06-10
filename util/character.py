@@ -6,7 +6,7 @@ class Character:
     level: int
     forte_levels: dict[db.model.Forte_Type, int]
 
-    def __init__(self, id: str, level: int, forte_levels: dict[db.model.Forte_Type, int]):
+    def __init__(self, id: str, level: int, forte_levels: dict[db.model.Forte_Type, int]) -> type(self):
         self.info = db.data.characters[id]
         self.level = level
         self.forte_levels = forte_levels
@@ -41,7 +41,7 @@ class Character:
         multiplier = self.info.attack_multipliers[attack_id][attack_level-1]/100.0
         return multiplier
 
-    def __str__(self):
+    def __str__(self) -> str:
         """String representation of the character."""
         return (f"Character({self.info.name}, Level: {self.level}, Base HP: {self.base_hp()}, "
                 f"Base ATK: {self.base_atk()}, Base DEF: {self.base_def()}, Crit Rate: {self.cr()*100}%, "

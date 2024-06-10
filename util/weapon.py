@@ -6,7 +6,7 @@ class Weapon:
     info: db.Weapon_Info
     level: int
 
-    def __init__(self, id: str, level: int):
+    def __init__(self, id: str, level: int) -> type(self):
         self.info = db.data.weapons[id]
         self.level = level
 
@@ -22,6 +22,6 @@ class Weapon:
     def substat(self) -> tuple[str, float]:
         return self.info.sub_stat, self.info.sub_scaling[self.ascension()]
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (f"Weapon({self.info.name}, Type: {self.info.type}, Flat ATK: {self.base_atk()}, "
                 f"ATK Bonus: {self.substat()[1]*100}%)")

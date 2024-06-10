@@ -1,49 +1,44 @@
 
-from typing import Union, Literal
+from typing import Literal
 
-Weapon_Type = Union[
-    Literal['sword'],
-    Literal['broadblade'],
-    Literal['pistols'],
-    Literal['gauntlets'],
-    Literal['rectifier'],
-]
+Weapon_Type = \
+    Literal['sword'] |\
+    Literal['broadblade'] |\
+    Literal['pistols'] |\
+    Literal['gauntlets'] |\
+    Literal['rectifier']
 
-Element = Union[
-    Literal['spectro'],
-    Literal['havoc'],
-    Literal['glacio'],
-    Literal['fusion'],
-    Literal['aero'],
-    Literal['electro'],
-]
+Element = \
+    Literal['spectro'] |\
+    Literal['havoc'] |\
+    Literal['glacio'] |\
+    Literal['fusion'] |\
+    Literal['aero'] |\
+    Literal['electro']
 
-Forte_Type = Union[
-    Literal['a'],
-    Literal['e'],
-    Literal['f'],
-    Literal['r'],
-    Literal['i'],
-]
+Forte_Type = \
+    Literal['a'] |\
+    Literal['e'] |\
+    Literal['f'] |\
+    Literal['r'] |\
+    Literal['i']
 
-Attack_Type = Union[
-    Literal['a'],
-    Literal['h'],
-    Literal['p'],
-    Literal['e'],
-    Literal['r'],
-    Literal['i'],
-    Literal['o'],
-]
+Attack_Type = \
+    Literal['a'] |\
+    Literal['h'] |\
+    Literal['p'] |\
+    Literal['e'] |\
+    Literal['r'] |\
+    Literal['i'] |\
+    Literal['o']
 
-Substat = Union[
-    Literal['atk'],
-    Literal['hp'],
-    Literal['def'],
-    Literal['er'],
-    Literal['cr'],
-    Literal['cd'],
-]
+Substat = \
+    Literal['atk'] |\
+    Literal['hp'] |\
+    Literal['def'] |\
+    Literal['er'] |\
+    Literal['cr'] |\
+    Literal['cd']
 
 class Attack:
     id: str

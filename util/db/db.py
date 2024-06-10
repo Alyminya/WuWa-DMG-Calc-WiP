@@ -23,7 +23,7 @@ fp_weapons_schema    = os.path.join(DB_PATH, SCHEMA_PATH, WEAPONS_SCHEMA)
 fp_character_schema  = os.path.join(DB_PATH, SCHEMA_PATH, CHARACTER_SCHEMA)
 fp_characters_schema = os.path.join(DB_PATH, SCHEMA_PATH, CHARACTERS_SCHEMA)
 
-def load_validate_json(json_path: str, json_schema_path: str):
+def load_validate_json(json_path: str, json_schema_path: str) -> dict[str, Any]:
     with open(json_path, mode='r') as data_file:
         data = json.load(data_file)
     with open(json_schema_path, mode='r') as schema_file:

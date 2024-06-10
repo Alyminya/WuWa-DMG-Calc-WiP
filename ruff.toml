@@ -1,8 +1,35 @@
 target-version = "py312"
 
 [lint]
-# E701: Multiple statements on the same line (Useful for e.g. `if cond: do_thing()` style of code)
-ignore = ["E701"]
+select = [
+    "N802", # Invalid function name
+    "N803", # Invalid argument name
+    "N804", # Invalid first argument for class method (should be named cls)
+    "N805", # Invalid first argument name for method (should be named self)
+    "N806", # Non-lowercase variable in function
+    "N807", # Dunder function name
+    "N815", # Mixed-case in class scope
+    "N816", # Mixed-case in global scope
+    "UP001", # __metaclass__ = type is implied
+    "UP003", # Use {} instead of type(...)
+    "UP004", # Class {name} inherits from object
+    "UP005", # 	{alias} is deprecated, use {target}
+    "UP006", # Use {to} instead of {from} for type annotation
+    "UP040", # Type alias {name} uses {type_alias_method} instead of the type keyword
+    "UP007", # Use X | Y for type annotations
+    "ANN001", # Missing type annotation for function argument {name}
+    "ANN002", # Missing type annotation for *{name}
+    "ANN003", # Missing type annotation for **{name}
+    "ANN201", # Missing return type annotation for public function {name}
+    "ANN202", # Missing return type annotation for private function {name}
+    "ANN204", # Missing return type annotation for special method {name}
+    "ANN205", # Missing return type annotation for staticmethod {name}
+    "ANN206", # Missing return type annotation for classmethod {name}
+    "ANN401", # Dynamically typed expressions (typing.Any) are disallowed in {name}
+]
+ignore = [
+    "E701", # Multiple statements on the same line (Useful for e.g. `if cond: do_thing()` style of code)
+]
 
 [format]
 indent-style = "space"
