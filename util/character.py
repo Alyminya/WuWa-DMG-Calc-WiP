@@ -1,14 +1,13 @@
 import math
 from . import db
-from .db import model
 
 class Character:
-    info: db.model.Character_Info
+    info: db.Character_Info
     level: int
-    forte_levels: dict[db.model.Forte_Type, int]
-    weapon: db.model.Weapon_Info
+    forte_levels: dict[db.Forte_Type, int]
+    weapon: db.Weapon_Info
 
-    def __init__(self, id: str, level: int, forte_levels: dict[db.model.Forte_Type, int]) -> None:
+    def __init__(self, id: str, level: int, forte_levels: dict[db.Forte_Type, int]) -> None:
         self.info = db.data.characters[id]
         self.level = level
         self.forte_levels = forte_levels
@@ -35,7 +34,7 @@ class Character:
     def cd(self) -> float:
         return 1.50
 
-    def attacks(self) -> dict[str, db.model.Attack]:
+    def attacks(self) -> dict[str, db.Attack]:
         return self.info.attacks
     
     def attack_multiplier(self, attack_id: str) -> float:

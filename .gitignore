@@ -2,6 +2,7 @@
 # Python
 __pycache__/
 .venv
+.ruff_cache
 
 # Editor configuration
 .vscode

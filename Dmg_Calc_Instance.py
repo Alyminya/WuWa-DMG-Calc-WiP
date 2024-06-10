@@ -11,6 +11,9 @@ import util.db
 import util.db.model
 
 class Build:
+
+    build: list[Character|Weapon]
+
     def __init__(self) -> None:
         self.build = []
 
@@ -90,7 +93,7 @@ def load_weapons(weapon_type: util.db.model.Weapon_Type) -> list[Weapon]:
     return weapons
 
 def load_characters() -> list[Character]:
-    default_forte: dict[util.db.Forte_Type, int] = {
+    default_forte: dict[util.db.model.Forte_Type, int] = {
         'a': 10,
         'e': 10,
         'f': 10,
