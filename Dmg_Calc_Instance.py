@@ -6,7 +6,7 @@ import util.db
 import util.db.model
 
 class Build:
-    def __init__(self) -> type(self):
+    def __init__(self) -> None:
         self.build = []
 
     def add_character(self, built_character: Character) -> None:
@@ -15,7 +15,7 @@ class Build:
     def add_weapon(self, built_weapon: Weapon) -> None:
         self.build.append(built_weapon)
 
-    def display_character(self: type(self)) -> None:
+    def display_character(self) -> None:
         print("Current character:")
         for c in self.build:
             if isinstance(c, Character):
@@ -28,7 +28,7 @@ class Build:
                 print(f"Crit Damage:  {c.cd()*100:.1f}%")
                 print("----------------------------")
 
-    def display_weapon(self: type(self)) -> None:
+    def display_weapon(self) -> None:
         print("Current weapon:")
         for w in self.build:
             if isinstance(w, Weapon):

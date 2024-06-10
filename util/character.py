@@ -1,12 +1,13 @@
 import math
 from . import db
+from .db import model
 
 class Character:
-    info: db.Character_Info
+    info: db.model.Character_Info
     level: int
     forte_levels: dict[db.model.Forte_Type, int]
 
-    def __init__(self, id: str, level: int, forte_levels: dict[db.model.Forte_Type, int]) -> type(self):
+    def __init__(self, id: str, level: int, forte_levels: dict[db.model.Forte_Type, int]) -> None:
         self.info = db.data.characters[id]
         self.level = level
         self.forte_levels = forte_levels

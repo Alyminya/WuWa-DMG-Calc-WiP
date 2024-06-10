@@ -1,13 +1,13 @@
 import math
 
-from . import db
+from .db import model
 
 class Weapon:
-    info: db.Weapon_Info
+    info: model.Weapon_Info
     level: int
 
-    def __init__(self, id: str, level: int) -> type(self):
-        self.info = db.data.weapons[id]
+    def __init__(self, id: str, level: int) -> None:
+        self.info = model.data.weapons[id]
         self.level = level
 
     def ascension(self) -> int:
