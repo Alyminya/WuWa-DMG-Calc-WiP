@@ -38,24 +38,28 @@
         },
         "meta": {
             "1a": {
+                "name": "Basic Attack Part 1",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "2a": {
+                "name": "Basic Attack Part 2",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": ["1a", "e"]
             },
             "3a": {
+                "name": "Basic Attack Part 3",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": ["2a"]
             },
             "h": {
+                "name": "Heavy Attack",
                 "forte_type": "a",
                 "atk_type": "h",
                 "strikes": 3,
@@ -63,6 +67,7 @@
                 "after": null
             },
             "p": {
+                "name": "Mid-Air Attack",
                 "forte_type": "a",
                 "atk_type": "p",
                 "strikes": 1,
@@ -70,12 +75,14 @@
                 "after": null
             },
             "(d)a": {
+                "name": "Dodge Counter",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 3,
                 "after": ["d"]
             },
             "e": {
+                "name": "Resonance Skill: Carmine Gleam",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 2,
@@ -83,6 +90,7 @@
                 "after": null
             },
             "1e": {
+                "name": "Resonance Skill: Crimson Erosion Part 1",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 2,
@@ -90,6 +98,7 @@
                 "after": ["2a"]
             },
             "2e": {
+                "name": "Resonance Skill: Crimson Erosion Part 2",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 2,
@@ -97,6 +106,7 @@
                 "after": ["1e"]
             },
             "1E": {
+                "name": "Resonance Skill: Sanguine Pulse Part 1",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 2,
@@ -104,6 +114,7 @@
                 "after": ["3a"]
             },
             "2E": {
+                "name": "Resonance Skill: Sanguine Pulse Part 2",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 3,
@@ -111,6 +122,7 @@
                 "after": ["1E"]
             },
             "3E": {
+                "name": "Resonance Skill: Sanguine Pulse Part 3",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 3,
@@ -118,6 +130,7 @@
                 "after": ["2E"]
             },
             "r": {
+                "name": "Resonance Liberation: Crimson Bloom",
                 "forte_type": "r",
                 "atk_type": "r",
                 "strikes": 8,
@@ -125,18 +138,21 @@
                 "chain": "(r)r"
             },
             "(r)r": {
+                "name": "Resonance Liberation: Scatterbloom",
                 "forte_type": "r",
                 "atk_type": "r",
                 "strikes": 1,
                 "after": []
             },
             "i": {
+                "name": "Intro Skill: Vindiction",
                 "forte_type": "i",
                 "atk_type": "i",
                 "strikes": 4,
                 "after": null
             },
             "(f)h": {
+                "name": "Heavy Attack: Chaoscleave",
                 "forte_type": "f",
                 "atk_type": "h",
                 "strikes": 7,
@@ -144,12 +160,14 @@
                 "after": null
             },
             "(fh)a": {
+                "name": "Heavy Attack: Scatterbloom",
                 "forte_type": "f",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": ["(f)h"]
             },
             "(f)H": {
+                "name": "Heavy Attack: Chaoscleave (full energy)",
                 "forte_type": "f",
                 "atk_type": "h",
                 "strikes": 7,
@@ -157,6 +175,7 @@
                 "after": null
             },
             "(fH)a": {
+                "name": "Heavy Attack: Scatterbloom (full energy)",
                 "forte_type": "f",
                 "atk_type": "a",
                 "strikes": 1,

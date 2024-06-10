@@ -36,24 +36,28 @@
         },
         "meta": {
             "1a": {
+                "name": "Basic Attack: Part 1",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "2a": {
+                "name": "Basic Attack: Part 2",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": ["1a"]
             },
             "3a": {
+                "name": "Basic Attack: Part 3",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": ["2a"]
             },
             "4a@1": {
+                "name": "Basic Attack: Part 4 (strike 1)",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 2,
@@ -61,36 +65,42 @@
                 "chain": "4a@2"
             },
             "4a@2": {
+                "name": "Basic Attack: Part 4 (strike 2)",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": ["4a@1"]
             },
             "h": {
+                "name": "Heavy Attack",
                 "forte_type": "a",
                 "atk_type": "h",
                 "strikes": 3,
                 "after": null
             },
             "p": {
+                "name": "Mid-Air Attack",
                 "forte_type": "a",
                 "atk_type": "p",
                 "strikes": 1,
                 "after": null
             },
             "(h)a": {
+                "name": "Heavy Attack: Zephyr Song",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 1,
                 "after": ["h", "(d)a"]  
             },
             "(d)a": {
+                "name": "Dodge Counter",
                 "forte_type": "a",
                 "atk_type": "a",
                 "strikes": 2,
                 "after": ["d"]
             },
             "e@1": {
+                "name": "Resonance Skill: Zephyr Domain",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 4,
@@ -98,12 +108,14 @@
                 "chain": "e@2"
             },
             "e@2": {
+                "name": "Resonance Skill: Zephyr Domain (last hit)",
                 "forte_type": "e",
                 "atk_type": "e",
                 "strikes": 1,
                 "after": ["e@1"]
             },
             "r@1": {
+                "name": "Resonance Liberation: Wind Spirals",
                 "forte_type": "r",
                 "atk_type": "r",
                 "strikes": 12,
@@ -111,18 +123,21 @@
                 "chain": "r@2"
             },
             "r@2": {
+                "name": "Resonance Liberation: Wind Spirals (last hit)",
                 "forte_type": "r",
                 "atk_type": "r",
                 "strikes": 1,
                 "after": ["r@1"]
             },
             "i": {
+                "name": "Intro Skill: Cerulean Song",
                 "forte_type": "i",
                 "atk_type": "i",
                 "strikes": 2,
                 "after": null
             },
             "(f)h": {
+                "name": "Heavy Attack: Stormy Strike",
                 "forte_type": "f",
                 "atk_type": "h",
                 "fe_req": 3,
@@ -130,14 +145,16 @@
                 "after": null
             },
             "(f)ma@1": {
+                "name": "Mid-Air Attack: Feather Release",
                 "forte_type": "f",
-                "atk_type": "a",
+                "atk_type": "p",
                 "fe_req": 3,
                 "strikes": 5,
                 "after": null,
                 "chain": "(f)ma@2"
             },
             "(f)ma@2": {
+                "name": "Mid-Air Attack: Feather Release (last 2 hits)",
                 "forte_type": "f",
                 "atk_type": "a",
                 "fe_req": 3,
