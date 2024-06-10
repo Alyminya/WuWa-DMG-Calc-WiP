@@ -33,7 +33,105 @@
             "(f)a": [220.00, 238.04, 256.08, 281.34, 299.38, 320.13, 348.99, 377.85, 406.72, 437.39]
         },
         "meta": {
-
+            "1a": {
+                "forte_type": "a",
+                "atk_type": "a",
+                "strikes": 1,
+                "fe_yield": 1,
+                "after": null
+            },
+            "2a": {
+                "forte_type": "a",
+                "atk_type": "a",
+                "strikes": 2,
+                "fe_yield": 1,
+                "after": ["1a"]
+            },
+            "3a": {
+                "forte_type": "a",
+                "atk_type": "a",
+                "strikes": 4,
+                "fe_yield": 1,
+                "after": ["2a"]
+            },
+            "4a": {
+                "forte_type": "a",
+                "atk_type": "a",
+                "strikes": 1,
+                "fe_yield": 1,
+                "after": ["3a"]
+            },
+            "h": {
+                "forte_type": "a",
+                "atk_type": "h",
+                "strikes": 1,
+                "after": null
+            },
+            "(c)h": {
+                "forte_type": "a",
+                "atk_type": "h",
+                "strikes": 1,
+                "after": null
+            },
+            "p": {
+                "forte_type": "a",
+                "atk_type": "p",
+                "strikes": 1,
+                "after": null
+            },
+            "(d)a": {
+                "forte_type": "a",
+                "atk_type": "a",
+                "strikes": 1,
+                "after": ["d"]
+            },
+            "e": {
+                "forte_type": "e",
+                "atk_type": "e",
+                "strikes": 8,
+                "after": null
+            },
+            "r@1": {
+                "forte_type": "r",
+                "atk_type": "r",
+                "strikes": 1,
+                "after": null,
+                "chain": "r@2"
+            },
+            "r@2": {
+                "forte_type": "r",
+                "atk_type": "r",
+                "strikes": 11,
+                "after": ["r@1"]
+            },
+            "i@1": {
+                "forte_type": "i",
+                "atk_type": "i",
+                "strikes": 2,
+                "fe_yield": 1,
+                "after": null,
+                "chain": "i@2"
+            },
+            "i@2": {
+                "forte_type": "i",
+                "atk_type": "i",
+                "strikes": 4,
+                "after": ["i@1"]
+            },
+            "(f)e": {
+                "forte_type": "f",
+                "atk_type": "e",
+                "fe_req": 1,
+                "strikes": 1,
+                "after": null
+            },
+            "(f)a": {
+                "forte_type": "f",
+                "atk_type": "a",
+                "fe_req": 1,
+                "strikes": 1,
+                "after": null
+            }
         } 
     }
 }
