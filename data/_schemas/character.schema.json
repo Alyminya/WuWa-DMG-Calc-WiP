@@ -23,7 +23,7 @@
             }
         },
         "max_forte": { "type": "number" },
-        "attacks": {
+        "moves": {
             "type": "object",
             "properties": {
                 "multipliers": {
@@ -40,7 +40,7 @@
                         "properties": {
                             "name": { "type":"string" },
                             "forte_type": { "enum": ["a","e","f","r","i"] },
-                            "atk_type": { "enum": ["a","h","p","e","r","i","o"] },
+                            "move_type": { "enum": ["a","h","p","e","r","i","o"] },
                             "strikes": { "type": "number" },
                             "sta_req":   { "type": "number" },
                             "fe_req":    { "type": "number" },
@@ -57,7 +57,7 @@
                         },
                         "required": [
                             "forte_type",
-                            "atk_type",
+                            "move_type",
                             "strikes",
                             "after",
                             "name"
@@ -69,6 +69,6 @@
         }
     },
     "required": [
-        "id", "name", "rarity", "weapon", "element", "stats", "max_forte", "attacks"
+        "id", "name", "rarity", "weapon", "element", "stats", "max_forte", "moves"
     ]
 }

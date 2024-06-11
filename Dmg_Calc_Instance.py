@@ -76,10 +76,10 @@ Character:  {character.info.name}
             
             headers = ["Attack", "Non-Crit", "Crit"]
             row_list = []
-            for attack_id in character.attacks():
-                non_crit, crit = util.damage.simple_damage(character, character.weapon, attack_id)
+            for move_id in character.moves():
+                non_crit, crit = util.damage.simple_damage(character, character.weapon, move_id)
                 row_list.append(
-                    [character.info.attacks[attack_id].name, f'{non_crit:.0f}', f'{crit:.0f}']
+                    [character.info.moves[move_id].name, f'{non_crit:.0f}', f'{crit:.0f}']
                 )
             print(character_info)
             print(tabulate(row_list, headers=headers))
@@ -133,10 +133,10 @@ def main() -> None:
     print()
     print('Attack', (60-len('Attack'))*' ', ' non-crit     ', 'crit', sep='')
     print('-'*60, ' ', '-'*12, ' ', '-'*12, sep='')
-    for attack_id in selected_char.attacks():
-        attack = selected_char.info.attacks[attack_id]
-        non_crit_dmg, crit_dmg = util.damage.simple_damage(selected_char, selected_weap, attack_id)
-        print(attack.name, ":", (60-len(attack.name)-1)*' ', f'{non_crit_dmg:>12.2f}', " ", f'{crit_dmg:>12.2f}', sep="")
+    for move_id in selected_char.moves():
+        move = selected_char.info.moves[move_id]
+        non_crit_dmg, crit_dmg = util.damage.simple_damage(selected_char, selected_weap, move_id)
+        print(move.name, ":", (60-len(move.name)-1)*' ', f'{non_crit_dmg:>12.2f}', " ", f'{crit_dmg:>12.2f}', sep="")
 
 def main_file(json_data: dict) -> None:
     test_build = TeamBuild()

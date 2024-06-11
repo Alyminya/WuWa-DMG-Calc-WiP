@@ -14,7 +14,7 @@
         "def": [112,  359.92,  617.09,  781.96,  946.85, 1111.72,  1276.60,  1368.89]
     },
     "max_forte": 100,
-    "attacks": {
+    "moves": {
         "multipliers": {
             "1a":      [29.75,   32.19,  34.63,  38.05,  40.49,  43.29,  47.20,  51.10,  55.00,  59.15],
             "2a":      [38.25,   41.39,  44.53,  48.92,  52.06,  55.66,  60.68,  65.70,  70.72,  76.05],
@@ -38,77 +38,77 @@
             "1a": {
                 "name": "Basic Attack Part 1",
                 "forte_type": "a",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "2a": {
                 "name": "Basic Attack Part 2",
                 "forte_type": "a",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 1,
                 "after": ["1a"]
             },
             "3a": {
                 "name": "Basic Attack Part 3",
                 "forte_type": "a",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 5,
                 "after": ["2a"]
             },
             "4a": {
                 "name": "Basic Attack Part 4",
                 "forte_type": "a",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 1,
                 "after": ["3a"]
             },
             "h": {
                 "name": "Heavy Attack",
                 "forte_type": "a",
-                "atk_type": "h",
+                "move_type": "h",
                 "strikes": 5,
                 "after": null
             },
             "(3at)a": {
                 "name": "Heavy Attack: Resonance",
                 "forte_type": "a",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 1,
                 "after": ["3a", "h"]
             },
             "(3ata)a": {
                 "name": "Heavy Attack: Aftertune",
                 "forte_type": "a",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 1,
                 "after": ["(3at)a", "(d)a"]
             },
             "p": {
                 "name": "Mid-air Attack",
                 "forte_type": "a",
-                "atk_type": "p",
+                "move_type": "p",
                 "strikes": 1,
                 "after": ["(3at)a", "(d)a"]
             },
             "(d)a": {
                 "name": "Dodge counter",
                 "forte_type": "a",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 1,
                 "after": ["d"]
             },
             "e": {
                 "name": "Resonance skill: Resonating Slashes",
                 "forte_type": "e",
-                "atk_type": "e",
+                "move_type": "e",
                 "strikes": 1,
                 "after": null
             },
             "r@1": {
                 "name": "Resonance Liberation: Echoing Orchestra (first hit)",
                 "forte_type": "r",
-                "atk_type": "r",
+                "move_type": "r",
                 "strikes": 1,
                 "after": null,
                 "chain": "r@2"
@@ -116,21 +116,21 @@
             "r@2": {
                 "name": "Resonance Liberation: Echoing Orchestra (second hit)",
                 "forte_type": "r",
-                "atk_type": "r",
+                "move_type": "r",
                 "strikes": 1,
                 "after": null
             },
             "i": {
                 "name": "Intro Skill: Reticence",
                 "forte_type": "i",
-                "atk_type": "i",
+                "move_type": "i",
                 "strikes": 1,
                 "after": null
             },
             "(f)e": {
                 "name": "Resonance Skill: Resonating Spin",
                 "forte_type": "f",
-                "atk_type": "e",
+                "move_type": "e",
                 "fe_req": 50,
                 "strikes": 1,
                 "after": null,
@@ -139,21 +139,21 @@
             "(f)e@2": {
                 "name": "Resonance Skill: Resonating Whirl",
                 "forte_type": "f",
-                "atk_type": "e",
+                "move_type": "e",
                 "strikes": 2,
                 "after": null
             },
             "(fe)1a": {
                 "name": "Basic Attack: Resonating Echoes Part 1",
                 "forte_type": "f",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 1,
                 "after": ["(f)e"]
             },
             "(fe)2a": {
                 "name": "Basic Attack: Resonating Echoes Part 2",
                 "forte_type": "f",
-                "atk_type": "a",
+                "move_type": "a",
                 "strikes": 1,
                 "after": ["(fe)1a"]
             }

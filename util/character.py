@@ -34,13 +34,13 @@ class Character:
     def cd(self) -> float:
         return 1.50
 
-    def attacks(self) -> dict[str, db.Attack]:
-        return self.info.attacks
+    def moves(self) -> dict[str, db.Move]:
+        return self.info.moves
     
-    def attack_multiplier(self, attack_id: str) -> float:
-        attack = self.info.attacks[attack_id]
-        attack_level = self.forte_levels[attack.forte_type]
-        multiplier = self.info.attack_multipliers[attack_id][attack_level-1]/100.0
+    def move_multiplier(self, move_id: str) -> float:
+        move = self.info.moves[move_id]
+        move_level = self.forte_levels[move.forte_type]
+        multiplier = self.info.move_multipliers[move_id][move_level-1]/100.0
         return multiplier
 
     def __str__(self) -> str:

@@ -20,12 +20,12 @@ from .weapon import Weapon
 #     return damage_formula
 # damage_formula = define_damage_formula()
 
-def simple_damage(character: Character, weapon: Weapon, attack_id: str) -> tuple[float, float]:
+def simple_damage(character: Character, weapon: Weapon, move_id: str) -> tuple[float, float]:
     atk_base = character.base_atk() + weapon.base_atk()
     cd = character.cd()
     atk_bonus_prc = 0.00
     atk_bonus_flat = 0.00
-    skill_scaling_mul = character.attack_multiplier(attack_id)
+    skill_scaling_mul = character.move_multiplier(move_id)
     skill_scaling_bonus = 0.00
     em_dmg_bonus = 0.00
     skill_dmg_bonus = 0.00
