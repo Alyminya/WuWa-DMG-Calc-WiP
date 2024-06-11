@@ -23,7 +23,7 @@ Forte_Type = \
     Literal['r'] |\
     Literal['i']
 
-Attack_Type = \
+Move_Type = \
     Literal['a'] |\
     Literal['h'] |\
     Literal['p'] |\
@@ -40,11 +40,11 @@ Substat = \
     Literal['cr'] |\
     Literal['cd']
 
-class Attack:
+class Move:
     id: str
     name: str
     forte_type: Forte_Type
-    atk_type: Attack_Type
+    move_type: Move_Type
     strikes: int
     after: list[str]|None
     chain: str|None
@@ -66,8 +66,8 @@ class Character_Info:
     base_atk_scaling: list[float]
     base_def_scaling: list[float]
     max_forte: int
-    attack_multipliers: dict[str, list[float]]
-    attacks: dict[str, Attack]
+    move_multipliers: dict[str, list[float]]
+    moves: dict[str, Move]
 
 class Weapon_Info:
     id: str
