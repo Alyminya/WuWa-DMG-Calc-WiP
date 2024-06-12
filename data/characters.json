@@ -1,7 +1,3 @@
 {
-    "danjin": "character/danjin.json",
-    "rover-spectro": "character/rover-spectro.json",
-    "taoqi": "character/taoqi.json",
-    "yangyang": "character/yangyang.json",
-    "chixia": "character/chixia.json"
+    "rover-spectro": "character/rover-spectro.json"
 }

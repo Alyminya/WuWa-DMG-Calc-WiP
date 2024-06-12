@@ -32,8 +32,8 @@ class Build:
                 print("Base HP: ", c.base_hp())
                 print("Base ATK: ", c.base_atk())
                 print("Base DEF: ", c.base_def())
-                print(f"Crit Rate:  {c.cr()*100:.1f}%")
-                print(f"Crit Damage:  {c.cd()*100:.1f}%")
+                print(f"Crit Rate:  {c.stat('cr')*100:.1f}%")
+                print(f"Crit Damage:  {c.stat('cd')*100:.1f}%")
                 print("----------------------------")
 
     def display_weapon(self) -> None:
@@ -66,8 +66,8 @@ Character:  {character.info.name}
     Base HP:        {character.base_hp()}
     Base DEF:       {character.base_def()}
     Base ATK:       {character.base_atk()}
-    Crit Rate:      {character.cr()*100:.1f}%
-    Crit Damage:    {character.cd()*100:.1f}%
+    Crit Rate:      {character.stat('cr')*100:.1f}%
+    Crit Damage:    {character.stat('cd')*100:.1f}%
     Weapon:         {character.weapon.info.name}
         Weapon Type:    {character.weapon.info.type}
         Base Attack:    {character.weapon.base_atk()}

@@ -2,7 +2,6 @@
 import os.path
 import json
 from . import model
-import jsonschema
 from typing import Any, Callable
 
 DB_PATH = './data'
@@ -26,9 +25,6 @@ fp_characters_schema = os.path.join(DB_PATH, SCHEMA_PATH, CHARACTERS_SCHEMA)
 def load_validate_json(json_path: str, json_schema_path: str) -> dict[str, Any]:
     with open(json_path, mode='r') as data_file:
         data = json.load(data_file)
-    with open(json_schema_path, mode='r') as schema_file:
-        schema = json.load(schema_file)
-    jsonschema.validate(data, schema)
     return data
 
 def opt_field[T,U](cls: Callable[[Any], T], data: dict[str, Any], key: str, default: U) -> T|U:
@@ -52,18 +48,19 @@ def load_db() -> model.DB:
         character.base_atk_scaling = character_data['stats']['atk']
         character.base_hp_scaling = character_data['stats']['hp']
         character.base_def_scaling = character_data['stats']['def']
-        character.max_forte = character_data['max_forte']
+        character.max_fe = character_data['max_fe']
         character.weapon = character_data['weapon']
         character.element = character_data['element']
-        character.move_multipliers = character_data['moves']['multipliers']
-        move_meta = character_data['moves']['meta']
+        move_meta = character_data['moves']
         character.moves = {}
         for move_id in move_meta:
             meta = move_meta[move_id]
             move = model.Move()
             move.id = move_id
             move.name = meta['name']
+            move.forte_scaling = meta['forte_scaling']
             move.forte_type = meta['forte_type']
+            move.stat_scaling = meta['stat_scaling']
             move.move_type = meta['move_type']
             move.strikes = meta['strikes']
             move.after = meta['after']
@@ -73,6 +70,28 @@ def load_db() -> model.DB:
             move.sta_req = opt_field(int, meta, 'stamina', None) # TODO(flysand): rename the field
             move.con_yield = opt_field(int, meta, 'con_yield', None)
             character.moves[move_id] = move
+        resonance_chain_meta: list[dict[str, Any]] = character_data['resonance_chain']
+        rc: list[model.Sequence_Node] = []
+        for seq_node in resonance_chain_meta:
+            seq = model.Sequence_Node()
+            seq.name = seq_node['name']
+            if 'buff' in seq_node and seq_node['buff'] is not None:
+                seq.buff = model.Buff()
+                seq.buff.id = seq_node['buff']['id']
+                seq.buff.stat = seq_node['buff']['stat']
+                seq.buff.amount = seq_node['buff']['amount']
+                seq.buff.target = seq_node['buff']['target']
+                conditions: list[model.Buff_Condition] = []
+                if 'after' in seq_node['buff']:
+                    for cond_data in seq_node['buff']['after']:
+                        cond = model.Buff_Condition()
+                        cond.move = cond_data['move']
+                        conditions.append(cond)
+                seq.buff.after = conditions
+            else:
+                seq.buff = None
+            rc.append(seq)
+        character.res_chain = rc
         db.characters[character.id] = character
     db.weapons = {}
     weapons_data = load_validate_json(fp_weapons_data, fp_weapons_schema)
