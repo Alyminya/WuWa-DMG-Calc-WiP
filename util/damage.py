@@ -21,23 +21,34 @@ from .weapon import Weapon
 # damage_formula = define_damage_formula()
 
 def simple_damage(character: Character, weapon: Weapon, move_id: str) -> tuple[float, float]:
-    atk_base = character.base_atk() + weapon.base_atk()
-    cd = character.cd()
-    atk_bonus_prc = 0.00
-    atk_bonus_flat = 0.00
-    skill_scaling_mul = character.move_multiplier(move_id)
-    skill_scaling_bonus = 0.00
-    em_dmg_bonus = 0.00
-    skill_dmg_bonus = 0.00
-    deepen = 0.00
-    res_enemy = 0.10
-    res_reduction = 0.00
-    dmg_noncrit = (
-        (atk_base * (1.0 + atk_bonus_prc) + atk_bonus_flat) *
-        skill_scaling_mul * (1.0 + skill_scaling_bonus) *
-        (1.0 + em_dmg_bonus + skill_dmg_bonus) *
-        (1.0 + deepen) *
-        0.48 * (1 - res_enemy + res_reduction)
-    )
-    return dmg_noncrit, dmg_noncrit*cd
-
+    # Calculate the character stats
+    base_atk = character.base_atk() + weapon.base_atk()
+    atk = base_atk * (1 + weapon.substat()[1])
+    # Calculate the Base DMG
+    base_ability_dmg = atk * character.move_multiplier(move_id)
+    flat_dmg = 0.00
+    flat_bonus = 0.00
+    base_dmg = base_ability_dmg + flat_dmg + flat_bonus
+    # Calculate the resistances
+    enemy_level = 70 # TODO(flysand): Enemy needs to come from parameters
+    # Note(flysand): I ran around the world fighting a few enemies, this
+    # seems to be the same for all enemies.
+    enemy_base_res = 0.29
+    res_penetration = 0.0
+    res_total = enemy_base_res + res_penetration
+    em_res = \
+        (1 - res_total/2) if res_total < 0 else \
+        (1 - res_total) if res_total < 0.8 else \
+        (1 / (1+5*res_total))
+    enemy_def = 8*enemy_level + 792
+    enemy_def_ign = 0
+    def_mul = (800+8*character.level) / (800+8*character.level + enemy_def * (1 - enemy_def_ign))
+    dmg_reduction = 1.0
+    resistance = res_total * em_res * def_mul * dmg_reduction
+    # Calculate bonuses
+    dmg_bonus = 1 + character.em_bonus()
+    dmg_amplify = 1 + 0
+    bonuses = dmg_bonus * dmg_amplify
+    # Calcualte crit and noncrit damage
+    dmg_noncrit = base_dmg * resistance * bonuses
+    return dmg_noncrit, dmg_noncrit*character.stat('cd')

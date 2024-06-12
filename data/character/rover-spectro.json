@@ -170,5 +170,64 @@
             "strikes": 1,
             "after": ["(fe)1a"]
         }
-    }
+    },
+    "resonance_chain": [
+        {
+            "name": "Odyssey of Beginnings",
+            "buff": {
+                "id": "odyssey-of-beginnings",
+                "stat": "cr",
+                "amount": 0.15,
+                "target": "self",
+                "after": [
+                    {"move": "e"},
+                    {"move": "(f)e"}
+                ]
+            }
+        },
+        {
+            "name": "Microcosmic Murmurs",
+            "buff": {
+                "id": "microcosmic-murmurs",
+                "stat": "spectro_dmg_bonus",
+                "amount": 0.20,
+                "target": "self"
+            }
+        },
+        {
+            "name": "Visages of Dust",
+            "buff": {
+                "id": "visages-of-dust",
+                "stat": "er",
+                "amount": 0.20,
+                "target": "self"
+            }
+        },
+        {
+            "name": "Resonating Lamella",
+            "buff": null
+        },
+        {
+            "name": "Temporal Virtuoso",
+            "buff": {
+                "id": "temporal-virtuoso",
+                "stat": "q_dmg_bonus",
+                "amount": 0.40,
+                "target": "self"
+            }
+        },
+        {
+            "name": "Echoes of Wanderlust",
+            "buff": {
+                "id": "echoes-of-wanderlust",
+                "stat": "spectro_dmg_res",
+                "amount": 0.10,
+                "target": "enemy",
+                "after": [
+                    {"move": "e"},
+                    {"move": "(f)e"}
+                ]
+            }
+        }
+    ]
 }

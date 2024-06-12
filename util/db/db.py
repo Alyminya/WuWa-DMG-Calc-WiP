@@ -70,6 +70,28 @@ def load_db() -> model.DB:
             move.sta_req = opt_field(int, meta, 'stamina', None) # TODO(flysand): rename the field
             move.con_yield = opt_field(int, meta, 'con_yield', None)
             character.moves[move_id] = move
+        resonance_chain_meta: list[dict[str, Any]] = character_data['resonance_chain']
+        rc: list[model.Sequence_Node] = []
+        for seq_node in resonance_chain_meta:
+            seq = model.Sequence_Node()
+            seq.name = seq_node['name']
+            if 'buff' in seq_node and seq_node['buff'] is not None:
+                seq.buff = model.Buff()
+                seq.buff.id = seq_node['buff']['id']
+                seq.buff.stat = seq_node['buff']['stat']
+                seq.buff.amount = seq_node['buff']['amount']
+                seq.buff.target = seq_node['buff']['target']
+                conditions: list[model.Buff_Condition] = []
+                if 'after' in seq_node['buff']:
+                    for cond_data in seq_node['buff']['after']:
+                        cond = model.Buff_Condition()
+                        cond.move = cond_data['move']
+                        conditions.append(cond)
+                seq.buff.after = conditions
+            else:
+                seq.buff = None
+            rc.append(seq)
+        character.res_chain = rc
         db.characters[character.id] = character
     db.weapons = {}
     weapons_data = load_validate_json(fp_weapons_data, fp_weapons_schema)
