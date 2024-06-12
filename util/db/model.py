@@ -43,7 +43,9 @@ Substat = \
 class Move:
     id: str
     name: str
+    forte_scaling: list[float]
     forte_type: Forte_Type
+    stat_scaling: str
     move_type: Move_Type
     strikes: int
     after: list[str]|None
@@ -65,8 +67,7 @@ class Character_Info:
     base_hp_scaling: list[float]
     base_atk_scaling: list[float]
     base_def_scaling: list[float]
-    max_forte: int
-    move_multipliers: dict[str, list[float]]
+    max_fe: int
     moves: dict[str, Move]
 
 class Weapon_Info:

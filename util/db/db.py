@@ -48,18 +48,19 @@ def load_db() -> model.DB:
         character.base_atk_scaling = character_data['stats']['atk']
         character.base_hp_scaling = character_data['stats']['hp']
         character.base_def_scaling = character_data['stats']['def']
-        character.max_forte = character_data['max_forte']
+        character.max_fe = character_data['max_fe']
         character.weapon = character_data['weapon']
         character.element = character_data['element']
-        character.move_multipliers = character_data['moves']['multipliers']
-        move_meta = character_data['moves']['meta']
+        move_meta = character_data['moves']
         character.moves = {}
         for move_id in move_meta:
             meta = move_meta[move_id]
             move = model.Move()
             move.id = move_id
             move.name = meta['name']
+            move.forte_scaling = meta['forte_scaling']
             move.forte_type = meta['forte_type']
+            move.stat_scaling = meta['stat_scaling']
             move.move_type = meta['move_type']
             move.strikes = meta['strikes']
             move.after = meta['after']

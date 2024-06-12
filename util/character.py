@@ -40,7 +40,7 @@ class Character:
     def move_multiplier(self, move_id: str) -> float:
         move = self.info.moves[move_id]
         move_level = self.forte_levels[move.forte_type]
-        multiplier = self.info.move_multipliers[move_id][move_level-1]/100.0
+        multiplier = self.info.moves[move_id].forte_scaling[move_level-1]/100.0
         return multiplier
 
     def __str__(self) -> str:
