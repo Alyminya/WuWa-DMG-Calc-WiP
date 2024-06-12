@@ -21,7 +21,7 @@ class Weapon:
         return self.info.atk_scaling[self.ascension()]
 
     def substat(self) -> tuple[str, float]:
-        return self.info.sub_stat, self.info.sub_scaling[self.ascension()]
+        return self.info.sub_stat, self.info.sub_scaling[self.ascension()]/100
 
     def __str__(self) -> str:
         return (f"Weapon({self.info.name}, Type: {self.info.type}, Flat ATK: {self.base_atk()}, "

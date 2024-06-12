@@ -23,17 +23,18 @@ from .weapon import Weapon
 def simple_damage(character: Character, weapon: Weapon, move_id: str) -> tuple[float, float]:
     # Calculate the character stats
     base_atk = character.base_atk() + weapon.base_atk()
-    atk = base_atk * (1 + weapon.substat()[1])
+    atk = base_atk * (1 + weapon.substat()[1] + 0.04)
     # Calculate the Base DMG
     base_ability_dmg = atk * character.move_multiplier(move_id)
     flat_dmg = 0.00
     flat_bonus = 0.00
     base_dmg = base_ability_dmg + flat_dmg + flat_bonus
     # Calculate the resistances
-    enemy_level = 70 # TODO(flysand): Enemy needs to come from parameters
-    # Note(flysand): I ran around the world fighting a few enemies, this
-    # seems to be the same for all enemies.
-    enemy_base_res = 0.29
+    enemy_level = 65 # TODO(flysand): Enemy needs to come from parameters
+    # TODO(flysand): The calculation for damage is still off by one with the current
+    # test case. I need to verify everything, potentially re-derive the formula
+    # for damage for which I'll need lots of testing.
+    enemy_base_res = 0.1
     res_penetration = 0.0
     res_total = enemy_base_res + res_penetration
     em_res = \
@@ -44,7 +45,9 @@ def simple_damage(character: Character, weapon: Weapon, move_id: str) -> tuple[f
     enemy_def_ign = 0
     def_mul = (800+8*character.level) / (800+8*character.level + enemy_def * (1 - enemy_def_ign))
     dmg_reduction = 1.0
-    resistance = res_total * em_res * def_mul * dmg_reduction
+    resistance = em_res * def_mul * dmg_reduction
+    # resistance = 0.46
+    print(resistance, res_total, em_res, def_mul, dmg_reduction)
     # Calculate bonuses
     dmg_bonus = 1 + character.em_bonus()
     dmg_amplify = 1 + 0

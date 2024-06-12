@@ -79,7 +79,7 @@ Character:  {character.info.name}
             for move_id in character.moves():
                 non_crit, crit = util.damage.simple_damage(character, character.weapon, move_id)
                 row_list.append(
-                    [character.info.moves[move_id].name, f'{non_crit:.0f}', f'{crit:.0f}']
+                    [character.info.moves[move_id].name, f'{non_crit:.2f}', f'{crit:.2f}']
                 )
             print(character_info)
             print(tabulate(row_list, headers=headers))
