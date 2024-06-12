@@ -2,7 +2,6 @@
 import os.path
 import json
 from . import model
-import jsonschema
 from typing import Any, Callable
 
 DB_PATH = './data'
@@ -26,9 +25,6 @@ fp_characters_schema = os.path.join(DB_PATH, SCHEMA_PATH, CHARACTERS_SCHEMA)
 def load_validate_json(json_path: str, json_schema_path: str) -> dict[str, Any]:
     with open(json_path, mode='r') as data_file:
         data = json.load(data_file)
-    with open(json_schema_path, mode='r') as schema_file:
-        schema = json.load(schema_file)
-    jsonschema.validate(data, schema)
     return data
 
 def opt_field[T,U](cls: Callable[[Any], T], data: dict[str, Any], key: str, default: U) -> T|U:

@@ -14,7 +14,7 @@
        "def": [78.00, 250.66, 429.76, 544.58, 659.41, 774.24, 889.06, 953.33] 
     },
     "max_forte": 70,
-    "moves": {
+    "attacks": {
         "multipliers": {
             "1a": [33.30, 36.04, 38.77, 42.59, 45.32, 48.46, 52.83, 57.20, 61.57, 66.21],
             "2a": [24.30, 26.30, 28.29, 31.08, 33.07, 35.36, 38.55, 41.74, 44.93, 48.32],
@@ -36,7 +36,7 @@
             "1a": {
                 "name": "Basic Attack: POW POW part 1",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "fe_yield": 1,
                 "after": null
@@ -44,7 +44,7 @@
             "2a": {
                 "name": "Basic Attack: POW POW part 2",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 2,
                 "fe_yield": 1,
                 "after": ["1a"]
@@ -52,7 +52,7 @@
             "3a": {
                 "name": "Basic Attack: POW POW part 3",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 4,
                 "fe_yield": 1,
                 "after": ["2a"]
@@ -60,7 +60,7 @@
             "4a": {
                 "name": "Basic Attack: POW POW part 4",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "fe_yield": 1,
                 "after": ["3a"]
@@ -68,35 +68,35 @@
             "h": {
                 "name": "Heavy Attack",
                 "forte_type": "a",
-                "move_type": "h",
+                "atk_type": "h",
                 "strikes": 1,
                 "after": null
             },
             "(c)h": {
                 "name": "Fully Charged Heavy Attack",
                 "forte_type": "a",
-                "move_type": "h",
+                "atk_type": "h",
                 "strikes": 1,
                 "after": null
             },
             "p": {
                 "name": "Mid-Air Attack",
                 "forte_type": "a",
-                "move_type": "p",
+                "atk_type": "p",
                 "strikes": 1,
                 "after": null
             },
             "(d)a": {
                 "name": "Dodge Counter",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["d"]
             },
             "e": {
                 "name": "Resonance Skill: Whizzing Fight Spirit",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 8,
                 "fe_yield": 25,
                 "after": null
@@ -104,7 +104,7 @@
             "r@1": {
                 "name": "Resonance Liberation: Blazing Flames part 1",
                 "forte_type": "r",
-                "move_type": "r",
+                "atk_type": "r",
                 "strikes": 1,
                 "after": null,
                 "chain": "r@2"
@@ -112,14 +112,14 @@
             "r@2": {
                 "name": "Resonance Liberation: Blazing Flames part 2",
                 "forte_type": "r",
-                "move_type": "r",
+                "atk_type": "r",
                 "strikes": 11,
                 "after": ["r@1"]
             },
             "i@1": {
                 "name": "Intro Skill: Grand Entrance part 1",
                 "forte_type": "i",
-                "move_type": "i",
+                "atk_type": "i",
                 "strikes": 2,
                 "fe_yield": 1,
                 "after": null,
@@ -128,14 +128,14 @@
             "i@2": {
                 "name": "Intro Skill: Grand Entrance part 2",
                 "forte_type": "i",
-                "move_type": "i",
+                "atk_type": "i",
                 "strikes": 4,
                 "after": ["i@1"]
             },
             "(f)e": {
                 "name": "Forte Circuit: Heroic Bullets - Thermobaric Bullets",
                 "forte_type": "f",
-                "move_type": "e",
+                "atk_type": "e",
                 "fe_req": 1,
                 "strikes": 1,
                 "after": ["4a"]
@@ -143,7 +143,7 @@
             "(f)a": {
                 "name": "Forte Circuit: Heroic Bullets - Boom Boom",
                 "forte_type": "f",
-                "move_type": "a",
+                "atk_type": "a",
                 "fe_req": 1,
                 "strikes": 1,
                 "after": null

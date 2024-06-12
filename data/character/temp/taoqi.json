@@ -14,7 +14,7 @@
         "def": [125.00, 411.34, 705.24, 893.67, 1082.11, 1270.54, 1458.97, 1564.44]
     },
     "max_forte": 3,
-    "moves": {
+    "attacks": {
         "multipliers": {
             "1a": [45.34, 49.06, 52.78, 57.99, 61.70, 65.98, 71.93, 77.83, 83.83, 90.15],
             "2a": [42.67, 46.17, 49.67, 54.57, 58.07, 62.09, 67.69, 73.29, 78.89, 84.84],
@@ -36,91 +36,91 @@
             "1a": {
                 "name": "Basic Attack Part 1",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "2a": {
                 "name": "Basic Attack Part 2",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["1a"]
             },
             "3a": {
                 "name": "Basic Attack Part 3",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["2a"]
             },
             "4a": {
                 "name": "Basic Attack Part 4",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["3a"]
             },
             "h": {
                 "name": "Heavy Attack",
                 "forte_type": "a",
-                "move_type": "h",
+                "atk_type": "h",
                 "strikes": 1,
                 "after": null
             },
             "sp": {
                 "name": "Basic Attack: Strategic Parry",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "p": {
                 "name": "Mid-Air Attack",
                 "forte_type": "a",
-                "move_type": "p",
+                "atk_type": "p",
                 "strikes": 1,
                 "after": null
             },
             "(d)a": {
                 "name": "Dodge Counter",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["d"]
             },
             "e": {
                 "name": "Resonance Skill: Rocksteady Defence",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 1,
                 "after": null
             },
             "e@h": {
                 "name": "Resonance Skill: Rocksteady Defence (healing)",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 0,
                 "after": null
             },
             "r": {
                 "name": "Resonance Liberation: Unmovable",
                 "forte_type": "r",
-                "move_type": "r",
+                "atk_type": "r",
                 "strikes": 1,
                 "after": null
             },
             "i": {
                 "name": "Intro Skill: Defence Formation",
                 "forte_type": "i",
-                "move_type": "i",
+                "atk_type": "i",
                 "strikes": 1,
                 "after": null
             },
             "(f)ta1": {
                 "name": "Basic Attack: Timed Counters Part 1",
                 "forte_type": "f",
-                "move_type": "a",
+                "atk_type": "a",
                 "fe_req": 1,
                 "strikes": 1,
                 "after": ["sp", "i"]
@@ -128,7 +128,7 @@
             "(f)ta2": {
                 "name": "Basic Attack: Timed Counters Part 2",
                 "forte_type": "f",
-                "move_type": "a",
+                "atk_type": "a",
                 "fe_req": 1,
                 "strikes": 1,
                 "after": ["(f)t1"]
@@ -136,7 +136,7 @@
             "(f)ta3": {
                 "name": "Basic Attack: Timed Counters Part 3",
                 "forte_type": "f",
-                "move_type": "a",
+                "atk_type": "a",
                 "fe_req": 1,
                 "strikes": 1,
                 "after": ["(f)t2"]

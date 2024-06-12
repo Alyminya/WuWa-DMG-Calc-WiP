@@ -14,7 +14,7 @@
         "def": [ 94.00,  302.08,  517.91,  656.29,  794.68,  933.05, 1071.43, 1148.89]
     },
     "max_forte": 120,
-    "moves": {
+    "attacks": {
         "multipliers": {
             "1a":    [28.80,   31.17,  33.53,  36.83,  39.20,  41.91,  45.69,  49.47,  53.25,  57.26],
             "2a":    [29.60,   32.03,  34.46,  37.86,  40.28,  43.08,  46.96,  50.84,  54.73,  58.85],
@@ -40,28 +40,28 @@
             "1a": {
                 "name": "Basic Attack Part 1",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": null
             },
             "2a": {
                 "name": "Basic Attack Part 2",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["1a", "e"]
             },
             "3a": {
                 "name": "Basic Attack Part 3",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["2a"]
             },
             "h": {
                 "name": "Heavy Attack",
                 "forte_type": "a",
-                "move_type": "h",
+                "atk_type": "h",
                 "strikes": 3,
                 "stamina": 20,
                 "after": null
@@ -69,7 +69,7 @@
             "p": {
                 "name": "Mid-Air Attack",
                 "forte_type": "a",
-                "move_type": "p",
+                "atk_type": "p",
                 "strikes": 1,
                 "stamina": 30,
                 "after": null
@@ -77,14 +77,14 @@
             "(d)a": {
                 "name": "Dodge Counter",
                 "forte_type": "a",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 3,
                 "after": ["d"]
             },
             "e": {
                 "name": "Resonance Skill: Carmine Gleam",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 2,
                 "fe_yield": 12,
                 "after": null
@@ -92,7 +92,7 @@
             "1e": {
                 "name": "Resonance Skill: Crimson Erosion Part 1",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 2,
                 "fe_yield": 12,
                 "after": ["2a"]
@@ -100,7 +100,7 @@
             "2e": {
                 "name": "Resonance Skill: Crimson Erosion Part 2",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 2,
                 "fe_yield": 12,
                 "after": ["1e"]
@@ -108,7 +108,7 @@
             "1E": {
                 "name": "Resonance Skill: Sanguine Pulse Part 1",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 2,
                 "fe_yield": 12,
                 "after": ["3a"]
@@ -116,7 +116,7 @@
             "2E": {
                 "name": "Resonance Skill: Sanguine Pulse Part 2",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 3,
                 "fe_yield": 12,
                 "after": ["1E"]
@@ -124,7 +124,7 @@
             "3E": {
                 "name": "Resonance Skill: Sanguine Pulse Part 3",
                 "forte_type": "e",
-                "move_type": "e",
+                "atk_type": "e",
                 "strikes": 3,
                 "fe_yield": 12,
                 "after": ["2E"]
@@ -132,7 +132,7 @@
             "r": {
                 "name": "Resonance Liberation: Crimson Bloom",
                 "forte_type": "r",
-                "move_type": "r",
+                "atk_type": "r",
                 "strikes": 8,
                 "after": null,
                 "chain": "(r)r"
@@ -140,21 +140,21 @@
             "(r)r": {
                 "name": "Resonance Liberation: Scatterbloom",
                 "forte_type": "r",
-                "move_type": "r",
+                "atk_type": "r",
                 "strikes": 1,
                 "after": []
             },
             "i": {
                 "name": "Intro Skill: Vindiction",
                 "forte_type": "i",
-                "move_type": "i",
+                "atk_type": "i",
                 "strikes": 4,
                 "after": null
             },
             "(f)h": {
                 "name": "Heavy Attack: Chaoscleave",
                 "forte_type": "f",
-                "move_type": "h",
+                "atk_type": "h",
                 "strikes": 7,
                 "fe_req": 60,
                 "after": null
@@ -162,14 +162,14 @@
             "(fh)a": {
                 "name": "Heavy Attack: Scatterbloom",
                 "forte_type": "f",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["(f)h"]
             },
             "(f)H": {
                 "name": "Heavy Attack: Chaoscleave (full energy)",
                 "forte_type": "f",
-                "move_type": "h",
+                "atk_type": "h",
                 "strikes": 7,
                 "fe_req": 120,
                 "after": null
@@ -177,7 +177,7 @@
             "(fH)a": {
                 "name": "Heavy Attack: Scatterbloom (full energy)",
                 "forte_type": "f",
-                "move_type": "a",
+                "atk_type": "a",
                 "strikes": 1,
                 "after": ["(f)H"]
             }
