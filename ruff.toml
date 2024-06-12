@@ -24,8 +24,6 @@ select = [
     "UP040", # Type alias {name} uses {type_alias_method} instead of the type keyword
     "UP007", # Use X | Y for type annotations
     "ANN001", # Missing type annotation for function argument {name}
-    "ANN002", # Missing type annotation for *{name}
-    "ANN003", # Missing type annotation for **{name}
     "ANN201", # Missing return type annotation for public function {name}
     "ANN202", # Missing return type annotation for private function {name}
     "ANN204", # Missing return type annotation for special method {name}

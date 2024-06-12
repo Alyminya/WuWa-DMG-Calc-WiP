@@ -32,7 +32,7 @@ Move_Type = \
     Literal['i'] |\
     Literal['o']
 
-Substat = \
+Scaling_Substat = \
     Literal['atk'] |\
     Literal['hp'] |\
     Literal['def'] |\
