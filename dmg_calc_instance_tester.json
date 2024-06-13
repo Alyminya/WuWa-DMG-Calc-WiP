@@ -15,9 +15,11 @@
             }
         }
     },
-    "rotation": {
-        "action_1": {
-            "rover": "1a"
+    "rotation": [
+        {
+            "type": "move",
+            "character": "rover-spectro",
+            "move": "1a"
         }
-    }
+    ]
 }

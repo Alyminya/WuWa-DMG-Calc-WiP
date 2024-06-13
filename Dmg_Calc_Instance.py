@@ -46,10 +46,20 @@ class Build:
                 print(f"ATK Bonus: {w.substat()[1]:.1f}%")
                 print("----------------------------")
 
+class MoveDesc:
+    character_id: str
+    move_id: str
+    def __init__(self, character_id: str, move_id: str) -> None:
+        self.character_id = character_id
+        self.move_id = move_id
+
 class TeamBuild:
     team: dict
+    rotation: list[MoveDesc]
+
     def __init__(self) -> None:
         self.team = {}
+        self.rotation = []
 
     def add_character(self, built_character: Character) -> None:
         self.team[built_character.info.id] = built_character
@@ -57,6 +67,9 @@ class TeamBuild:
     def add_weapon(self, built_weapon: Weapon, character_id: str) -> None:
         if character_id in self.team:
             self.team[character_id].weapon = built_weapon
+    
+    def add_move(self, move: MoveDesc) -> None:
+        self.rotation.append(move)
 
     def display_team(self) -> None:
         for chr_id, character in self.team.items():
@@ -75,7 +88,7 @@ Character:  {character.info.name}
             """
             
             headers = ["Attack", "Non-Crit", "Crit"]
-            row_list = []
+            row_list: list[list[str]] = []
             for move_id in character.moves():
                 non_crit, crit = util.damage.simple_damage(character, character.weapon, move_id)
                 row_list.append(
@@ -83,67 +96,27 @@ Character:  {character.info.name}
                 )
             print(character_info)
             print(tabulate(row_list, headers=headers))
-
-def load_weapons(weapon_type: util.db.model.Weapon_Type) -> list[Weapon]:
-    weapons: list[Weapon] = []
-    for weapon_id in util.db.data.weapons:
-        weapon = Weapon(weapon_id, level = 70)
-        if weapon.info.type == weapon_type:
-            weapons.append(weapon)
-    return weapons
-
-def load_characters() -> list[Character]:
-    default_forte: dict[util.db.model.Forte_Type, int] = {
-        'a': 10,
-        'e': 10,
-        'f': 10,
-        'r': 10,
-        'i': 10,
-    }
-    characters: list[Character] = []
-    for chr_id in util.db.data.characters:
-        characters.append(Character(chr_id, level = 90, forte_levels = default_forte))
-    return characters
-
-def main() -> None:
-    my_build = Build()
-    characters = load_characters()
-
-    # Display character options
-    print("Select a character:")
-    for i, char in enumerate(characters):
-        print(f"{1+i}. {char.info.name} (Level: {char.level}, HP: {char.base_hp()}, ATK: {char.base_atk()}, DEF: {char.base_def()})")
-
-    char_choice = int(input("Enter the number of the character you want to select: ")) - 1
-    selected_char = characters[char_choice]
-    my_build.add_character(selected_char)
-    my_build.display_character()
-
-    # Display weapon options
-    print("Select a weapon:")
-    weapons = load_weapons(selected_char.info.weapon)
-    for i, weap in enumerate(weapons):
-        print(f"{1+i}. {weap.info.name} (Type: {weap.info.type}, ATK: {weap.base_atk()}, ATK Bonus: {weap.substat()[1]*100}%)")
-
-    weap_choice = int(input("Enter the number of the weapon you want to select: ")) - 1
-    selected_weap = weapons[weap_choice]
-    my_build.add_weapon(selected_weap)
-    my_build.display_weapon()
-
-    print()
-    print('Attack', (60-len('Attack'))*' ', ' non-crit     ', 'crit', sep='')
-    print('-'*60, ' ', '-'*12, ' ', '-'*12, sep='')
-    for move_id in selected_char.moves():
-        move = selected_char.info.moves[move_id]
-        non_crit_dmg, crit_dmg = util.damage.simple_damage(selected_char, selected_weap, move_id)
-        print(move.name, ":", (60-len(move.name)-1)*' ', f'{non_crit_dmg:>12.2f}', " ", f'{crit_dmg:>12.2f}', sep="")
+    
+    def display_rotation(self) -> None:
+        headers = ["Character", "Attack", "Non-Crit", "Crit"]
+        row_list: list[list[str]] = []
+        for move_desc in self.rotation:
+            character = self.team[move_desc.character_id]
+            non_crit, crit = util.damage.simple_damage(character, character.weapon, move_desc.move_id)
+            row_list.append(
+                [character.info.name, character.info.moves[move_desc.move_id].name, f'{non_crit:.2f}', f'{crit:.2f}']
+            )
+        print(tabulate(row_list, headers=headers))
 
 def main_file(json_data: dict) -> None:
     test_build = TeamBuild()
     for character, info in json_data["characters"].items():
         test_build.add_character(Character(character, level = info["level"], forte_levels = info["forte_levels"]))
         test_build.add_weapon(Weapon(info["weapon"]["weapon_id"], level = info["weapon"]["level"]), character)
-    test_build.display_team()
+        for move in json_data["rotation"]:
+            if move["type"] == "move":
+                test_build.add_move(MoveDesc(move["character"], move["move"]))
+    test_build.display_rotation()
 
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "-f":

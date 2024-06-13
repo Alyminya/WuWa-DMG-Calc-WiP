@@ -47,7 +47,6 @@ def simple_damage(character: Character, weapon: Weapon, move_id: str) -> tuple[f
     dmg_reduction = 1.0
     resistance = em_res * def_mul * dmg_reduction
     # resistance = 0.46
-    print(resistance, res_total, em_res, def_mul, dmg_reduction)
     # Calculate bonuses
     dmg_bonus = 1 + character.em_bonus()
     dmg_amplify = 1 + 0
